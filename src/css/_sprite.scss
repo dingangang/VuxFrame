@@ -1,0 +1,25 @@
+$browser-default-font-size:20px;
+
+@function pxToRem($px){
+  @return $px / ( 2 * $browser-default-font-size) * 1rem;
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.hover-item.active .icon-activity{
+  width: pxToRem(56px);
+  height: pxToRem(56px);
+  background-position: pxToRem(-98px) pxToRem(0px);
+  background-size: pxToRem(154px) pxToRem(88px);
+  background-image: url('../assets/sprite.png');
+}
+.icon-add{
+  width: pxToRem(88px);
+  height: pxToRem(88px);
+  background-position: pxToRem(0px) pxToRem(0px);
+  background-size: pxToRem(154px) pxToRem(88px);
+  background-image: url('../assets/sprite.png');
+}
