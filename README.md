@@ -1,4 +1,4 @@
-# VueFrame
+# VuxFrame
 
 > Vue+VueRouter+Vuex+Vux+Spritesmith
 
