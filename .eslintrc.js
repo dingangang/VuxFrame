@@ -51,6 +51,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'func-names': 'off',
     'no-shadow': 'off',
-    'prefer-arrow-callback' : 'off'
+    'prefer-arrow-callback' : 'off',
+    'semi': 'off',
   }
 }

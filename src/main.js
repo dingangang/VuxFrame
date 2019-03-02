@@ -1,28 +1,34 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue';
-import App from './App';
-import router from './router';
-import store from './store';
-import './css/main.scss';
+import Vue from 'vue'
+import { formatNum } from '@/utils/formatNum'
+import App from './App'
+import router from './router'
+import store from './store'
+import './css/main.scss'
+import './plugins/axios'
+import './plugins/vux-components'
+import './mock/ui-api'
 
-const FastClick = require('fastclick');
+Vue.prototype.$formatNum = formatNum
 
-FastClick.attach(document.body);
+const FastClick = require('fastclick')
 
-Vue.config.productionTip = false;
+FastClick.attach(document.body)
+
+Vue.config.productionTip = false
 
 /* 模拟加载缓慢时的loading标签，实际开发时去掉setTimeout函数即可 */
 router.beforeEach((to, from, next) => {
-  store.commit('updateLoadingStatus', { isLoading: true });
+  store.commit('updateLoadingStatus', { isLoading: true })
   setTimeout(() => {
-    next();
-  }, 2000);
-});
+    next()
+  }, 2000)
+})
 
 router.afterEach(() => {
-  store.commit('updateLoadingStatus', { isLoading: false });
-});
+  store.commit('updateLoadingStatus', { isLoading: false })
+})
 
 /* eslint-disable no-new */
 new Vue({
@@ -31,4 +37,4 @@ new Vue({
   store,
   components: { App },
   template: '<App/>',
-});
+})
