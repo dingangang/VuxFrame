@@ -2,4 +2,54 @@ body {
   scroll-behavior: smooth;
 }
 
+.page {
+  position: relative;
+}
 
+.pm-search {
+  &--top {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 0 1rem;
+
+  }
+  .weui-cells {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    background-color: transparent;
+    &::before,
+    &::after {
+      content: none
+    }
+  }
+  .weui-cell {
+    flex: 1;
+    margin-right: 0.75rem;
+    padding-right: 2rem;
+    padding: 0 0.5rem;
+    border-radius: 0.25rem;
+    background-color: rgba(255,255,255,0.6);
+  }
+  .weui-input {
+    font-size: 0.815rem;
+    &::placeholder {
+      color: #fff;
+    }
+    ::-webkit-input-placeholder {
+      color: #fff
+    }
+  }
+  .icon {
+    flex: 0 0 1.75rem;
+  }
+}
+
+.pm-swiper--no-title {
+  .vux-swiper-desc {
+    display:none;
+  }
+}

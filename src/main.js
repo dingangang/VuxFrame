@@ -2,9 +2,11 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import { formatNum } from '@/utils/formatNum'
+import '@/components/index'
 import App from './App'
 import router from './router'
 import store from './store'
+
 import './css/main.scss'
 import './plugins/axios'
 import './plugins/vux-components'

@@ -53,5 +53,7 @@ module.exports = {
     'no-shadow': 'off',
     'prefer-arrow-callback' : 'off',
     'semi': 'off',
+    'space-before-function-paren': 'off',
+    'global-require': 'off'
   }
 }

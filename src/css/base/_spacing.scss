@@ -2,6 +2,15 @@
 
 // stylelint-disable
 
+// 浮动
+.pull-right {
+  float: right !important;
+}
+
+.pull-left {
+  float: left !important;
+}
+
 // 百分比宽度
 @for $i from 1 through 20 {
   .w-#{$i * 5} {

@@ -1,7 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HelloWorld from '@/components/HelloWorld';
-import PageDemo from '@/pages/PageDemo';
 
 Vue.use(Router);
 
@@ -9,13 +7,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld,
+      redirect: '/parent/index',
     },
     {
-      path: '/pagedemo',
-      name: 'PageDemo',
-      component: PageDemo,
+      path: '/parent/index',
+      name: 'parent-index',
+      component: () => import(/* webpackChunkName: "parent" */ './pages/Parents/Index/index'),
     },
   ],
 });
