@@ -23,6 +23,7 @@ export default {
   computed: {
     ...mapState({
       isLoading: state => state.isLoading,
+      role: state => state.role
     }),
   },
 };

@@ -6,22 +6,25 @@
       :loop="true"
       height="11.3rem"
       :interval="50000"
-      :list="demo01_list"
-      v-model="demo02_index"
+      :list="swiperData"
+      v-model="currentSwiperIndex"
       :min-moving-distance="120"
-      @on-index-change="demo01_onIndexChange"
+      @on-index-change="onSwiperChange"
     ></swiper>
     <group class="pm-search pm-search--top">
       <x-input
         v-model="searchValue"
         placeholder="搜索课程、机构"
+        @on-enter="onSearchEnter"
       >
         <i
           slot="label"
           class="icon icon-home_search"
           style="margin-right: 0.47rem"></i>
       </x-input>
-      <i class="icon icon-home_chart"></i>
+      <div>
+        <i class="icon icon-home_chart"></i>
+      </div>
     </group>
     <flexbox
       style="padding: 0.75rem 1rem; background: #FFF3ED"
@@ -83,10 +86,22 @@
         label="推荐机构"
         link="somewhere"
       ></pm-block-header>
-      <pm-panel
-        :list="recomanderOrganization.dataset"
-        @on-img-error="onImgError"
-      ></pm-panel>
+      <div
+        v-infinite-scroll="loadMore"
+        infinite-scroll-disabled="busy"
+        infinite-scroll-distance="10"
+      >
+        <pm-panel
+          :list="recomanderOrganization.dataset"
+          @on-img-error="onImgError"
+        ></pm-panel>
+        <div
+          class="text-center text-weakening"
+          style="line-height: 2.4"
+        >
+          查看更多机构
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -98,6 +113,7 @@ import ScrollImg from '@/components/scroll-img/scroll-img'
 export default {
   name: 'index',
   created() {
+    this.getSwiperData()
     this.getMarqueeData()
     this.getAppEntrances()
     this.getHotActivities()
@@ -106,16 +122,9 @@ export default {
   data() {
     return {
       searchValue: '',
-      demo02_index: 0,
-      demo01_list: [
-        {
-          url: '',
-          img: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=793493291,425094081&fm=26&gp=0.jpg',
-        }, {
-          url: '',
-          img: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=793493291,425094081&fm=26&gp=0.jpg',
-        },
-      ],
+      currentSwiperIndex: 0,
+      swiperData: [],
+
       marqueeData: [],
       appEntrances: [],
       hotActivities: {
@@ -134,7 +143,33 @@ export default {
   },
   methods: {
     /**
-     * 获取轮播消息
+     * 搜索条回车事件
+     */
+    onSearchEnter() {
+      console.log('搜索的内容是', this.searchValue)
+      this.$router.push({ name: 'search', params: { value: this.searchValue } })
+    },
+    /**
+     * 滚动加载更多
+     */
+    loadMore () {
+      console.log('触发滚动加载事件')
+    },
+    /**
+     * 获取首页轮播图数据
+     */
+    getSwiperData () {
+      this.axios.get('/index-swiper-data')
+        .then((res) => {
+          console.log('轮播图消息', res)
+          this.swiperData = res.data.dataset
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+    },
+    /**
+     * 获取marquee消息
      */
     getMarqueeData () {
       this.axios.get('/parent/index/marqueeData')
@@ -207,8 +242,8 @@ export default {
     onImgError(params) {
       console.log('图片出错了', params)
     },
-    demo01_onIndexChange() {
-      console.log('change')
+    onSwiperChange() {
+      console.log('轮播图 change')
     },
   },
 }

@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import { formatNum } from '@/utils/formatNum'
+import infiniteScroll from 'vue-infinite-scroll'
 import '@/components/index'
 import App from './App'
 import router from './router'
@@ -13,6 +14,7 @@ import './plugins/vux-components'
 import './mock/ui-api'
 
 Vue.prototype.$formatNum = formatNum
+Vue.use(infiniteScroll)
 
 const FastClick = require('fastclick')
 

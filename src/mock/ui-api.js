@@ -13,17 +13,52 @@ if (process.env.NODE_ENV === 'development') {
   Mock.mock(/test$/, {
     msg: 'hello from mockjs.'
   })
+  // 获取搜索结果
+  Mock.mock(/get-search-data$/, {
+    'dataset|2-4': [
+      {
+        id: '@ID',
+        title: '@CWORD(4,7)机构',
+        distance: '@FLOAT(0,4,1,1)km',
+        'courses|1-2': [
+          {
+            id: '@id',
+            src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg',
+            title: '@CWORD(3,8)',
+            desc: '@INTEGER(100,300)人已报名',
+            auths: ['12节', '小学', '每周2-5次'],
+            price: '￥@FlOAT(10,12,2,2)',
+            orginPrice: '￥@FlOAT(12,20,2,2)',
+            url: '/somewhere'
+          }
+        ]
+      }
+    ]
+  })
+  // 首页轮播图
+  Mock.mock(/index-swiper-data$/, {
+    dataset: [
+      {
+        url: '/somewhere',
+        img: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=793493291,425094081&fm=26&gp=0.jpg',
+      }, {
+        url: '/somewhere',
+        img: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=793493291,425094081&fm=26&gp=0.jpg',
+      },
+    ]
+  })
   // 推荐机构信息
   Mock.mock(/parent\/index\/organization$/, {
     link: '/somewhere',
     'dataset|3-5': [
       {
         id: '@id',
-        src: '/static/images/bg04.png',
+        src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg',
         title: '@CWORD(3,8)',
         desc: '@CPARAGRAPH(10,25)',
         auths: ['已认证', '某某机构'],
-        distance: '@FLOAT(0,7,1,1)'
+        distance: '@FLOAT(0,7,1,1)km',
+        url: '/somewhere'
       }
     ]
   })

@@ -54,6 +54,7 @@ module.exports = {
     'prefer-arrow-callback' : 'off',
     'semi': 'off',
     'space-before-function-paren': 'off',
-    'global-require': 'off'
+    'global-require': 'off',
+    'comma-dangle':　'off'
   }
 }

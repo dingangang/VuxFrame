@@ -16,6 +16,7 @@
     "mockjs": "^1.0.1-beta3",
     "sass-resources-loader": "^2.0.0",
     "vue": "^2.5.2",
+    "vue-infinite-scroll": "^2.0.2",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

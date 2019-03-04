@@ -52,6 +52,9 @@ export default {
     margin: 0.75rem 0 1rem 1rem;
     padding: 1.6rem 0.75rem;
     // background: rgba(0,0,0,0.4)
+    &:last-child {
+      margin-right: 1rem;
+    }
   }
   &__title,
   &__subTitle {

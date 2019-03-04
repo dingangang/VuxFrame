@@ -14,17 +14,31 @@
             alt="img">
         </div>
         <div class="weui-media-box__bd">
-          <h4 class="weui-media-box__title" v-html="item.title"></h4>
-          <div class="pm-auth">
-            <div
-              class="pm-auth__item"
-              v-for="(auth,index) in item.auths"
-              :key="index"
-            >{{auth}}</div>
+          <div>
+            <h4 class="weui-media-box__title" v-html="item.title"></h4>
+            <div class="pm-auth">
+              <div
+                class="pm-auth__item"
+                v-for="(auth,index) in item.auths"
+                :key="index"
+              >{{auth}}</div>
+            </div>
           </div>
           <p class="weui-media-box__desc">
             {{textTruncation(item.desc)}}
-            <span class="pm-panel__distance">{{item.distance}}km</span>
+            <span
+              class="pm-panel__distance text-secondary"
+              v-if="item.distance"
+            >{{item.distance}}</span>
+            <span
+              class="pm-panel__distance text-main text-small text-bold"
+              v-if="item.price"
+            >
+              {{item.price}}
+              <span
+                class="text-default text-secondary text-normal"
+                style="margin-left: -5px"
+              >{{item.orginPrice}}</span></span>
           </p>
         </div>
       </a>
@@ -47,7 +61,9 @@ export default {
   },
   methods: {
     textTruncation(text) {
-      return `${text.slice(0, 28)}...`
+      return text.length > 28
+        ? `${text.slice(0, 28)}...`
+        : text
     },
     go(url) {
       this.$router.push(url)
@@ -65,6 +81,9 @@ export default {
 
 <style scoped lang="scss">
 .pm-panel {
+  &.weui-panel:before {
+    content: none
+  }
   .weui-media-box_appmsg{
     align-items: stretch;
     .weui-media-box__hd {
@@ -72,6 +91,11 @@ export default {
       width: 5.625rem;
       line-height: 5.625rem;
 
+    }
+    .weui-media-box__bd {
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between
     }
     .weui-media-box__desc {
       position: relative;
@@ -81,7 +105,6 @@ export default {
     position: absolute;
     right: 0;
     bottom: 0;
-    color: $color-text-secondary;
   }
 }
 .pm-auth {

@@ -14,5 +14,10 @@ export default new Router({
       name: 'index',
       component: () => import(/* webpackChunkName: "index" */ './pages/Index/index'),
     },
+    {
+      path: '/search/:value',
+      name: 'search',
+      component: () => import(/* webpackChunkName: "index" */ './pages/SearchPage/index'),
+    },
   ],
 });

@@ -54,14 +54,15 @@
 </template>
 
 <script>
-  export default {
-    name: 'template-index',
-    data() {
-      return {
-        currentSelected: 0
-      }
+export default {
+  name: 'template-index',
+  created() {},
+  data() {
+    return {
+      currentSelected: 0
     }
   }
+}
 </script>
 
 <style scoped>

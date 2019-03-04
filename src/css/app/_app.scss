@@ -36,15 +36,13 @@ body {
   }
   .weui-input {
     font-size: 0.815rem;
+    height: 2.411765em;
     &::placeholder {
       color: #fff;
     }
     ::-webkit-input-placeholder {
       color: #fff
     }
-  }
-  .icon {
-    flex: 0 0 1.75rem;
   }
 }
 
