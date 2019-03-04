@@ -15,18 +15,20 @@ if (process.env.NODE_ENV === 'development') {
   })
   // 获取消息列表
   Mock.mock(/get-messagesdata$/, {
-    'messageRead|3-6': [
+    'messageRead|3-10': [
       {
         id: '@ID',
+        url: '/somewhere',
         title: '@CTITLE(3,15)',
         desc: '@CPARAGRAPH(10,40)',
         time: '@DATE("yyyy/MM/dd HH:mm:ss")',
         src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg',
       }
     ],
-    'messageUnRead|3-6': [
+    'messageUnread|3-6': [
       {
         id: '@ID',
+        url: '/somewhere',
         title: '@CTITLE(3,15)',
         desc: '@CPARAGRAPH(10,40)',
         time: '@DATE("yyyy/MM/dd HH:mm:ss")',

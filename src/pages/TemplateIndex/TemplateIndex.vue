@@ -64,7 +64,7 @@ export default {
   },
   computed: {
     noTabbar() {
-      return this.$router.meta && this.$router.meta.noTabbar
+      return this.$route.meta && this.$route.meta.noTabbar
     }
   }
 }

@@ -23,7 +23,10 @@
           style="margin-right: 0.47rem"></i>
       </x-input>
       <div>
-        <i class="icon icon-home_chart"></i>
+        <i
+          class="icon icon-home_chart"
+          @click="handleCalendarClick"
+        ></i>
       </div>
     </group>
     <flexbox
@@ -68,7 +71,7 @@
             class="icon"
             :class="`icon-${item.icon}`"
           ></i>
-          <p>{{item.name}}</p>
+          <p class="mt-step">{{item.name}}</p>
         </div>
       </flexbox-item>
     </flexbox>
@@ -244,6 +247,12 @@ export default {
         .catch((err) => {
           console.error(err)
         })
+    },
+    /**
+     * 处理小日历图标点击
+     */
+    handleCalendarClick() {
+      console.log('在此处应跳转到签到页面')
     },
     /**
      * 图片错误

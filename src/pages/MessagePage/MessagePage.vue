@@ -29,14 +29,34 @@
     </x-header>
     <div class="pm-tab">
       <div class="pm-tab-pane" v-if="currentTab === 0">
-        <pm-message-list
-          :messages="messageRead"
-        ></pm-message-list>
+        <div
+          v-infinite-scroll="loadMore"
+          infinite-scroll-disabled="busy"
+          infinite-scroll-distance="10"
+        >
+          <pm-message-list
+            :messages="messageRead"
+          ></pm-message-list>
+          <div
+            class="text-center text-weakening"
+            style="line-height:2.4rem"
+          >加载更多</div>
+        </div>
       </div>
       <div class="pm-tab-pane" v-if="currentTab === 1">
-        <pm-message-list
-          :messages="messageUnread"
-        ></pm-message-list>
+        <div
+          v-infinite-scroll="loadMore"
+          infinite-scroll-disabled="busy"
+          infinite-scroll-distance="10"
+        >
+          <pm-message-list
+            :messages="messageUnread"
+          ></pm-message-list>
+          <div
+            class="text-center text-weakening"
+            style="line-height:2.4rem"
+          >加载更多</div>
+        </div>
       </div>
     </div>
   </div>
@@ -48,8 +68,14 @@ export default {
   created() {
     this.getMessagesData()
   },
+  mounted() {
+    setTimeout(() => {
+      this.scrollLock = false
+    }, 1500);
+  },
   data() {
     return {
+      scrollLock: true,
       currentTab: 0,
       messageRead: [],
       messageReadBadge: 1,
@@ -59,6 +85,15 @@ export default {
   },
   methods: {
     /**
+     * 加载更多
+     */
+    loadMore() {
+      if (!this.scrollLock) {
+        // 避免页面加载时调用此方法
+        console.log('调用滚动加载，具体页面请根据currentTab判定')
+      }
+    },
+    /**
      * 获取消息
      */
     getMessagesData() {
@@ -66,7 +101,7 @@ export default {
         .then((res) => {
           console.log('获取消息,badge请自行处理', res)
           this.messageRead = res.data.messageRead
-          this.messageUnreadBadge = res.data.messageUnreadBadge
+          this.messageUnread = res.data.messageUnread
         })
         .catch((err) => {
           console.error(err)
@@ -85,6 +120,7 @@ export default {
 
 <style scoped lang="scss">
 .pm-title-tab{
+  height: 40px;
   .vux-button-group {
     justify-content: space-around;
     .vux-button-group-current {
@@ -96,6 +132,8 @@ export default {
   .vux-button-tab-item {
     position: relative;
     flex: 0;
+    height: 40px;
+    line-height: 40px;
     border-radius: 0;
     color: $color-text-secondary;
     &:after {
