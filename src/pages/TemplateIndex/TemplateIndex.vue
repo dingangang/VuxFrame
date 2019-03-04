@@ -1,7 +1,7 @@
 <template>
   <div class="pm-index-page">
     <slot></slot>
-    <tabbar class="pm-tabbar">
+    <tabbar class="pm-tabbar" v-show="!noTabbar">
       <tabbar-item
         :selected="currentSelected === 0"
         @on-item-click="currentSelected = 0"
@@ -60,6 +60,11 @@ export default {
   data() {
     return {
       currentSelected: 0
+    }
+  },
+  computed: {
+    noTabbar() {
+      return this.$router.meta && this.$router.meta.noTabbar
     }
   }
 }

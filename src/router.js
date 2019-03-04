@@ -17,6 +17,9 @@ export default new Router({
     {
       path: '/search/:value',
       name: 'search',
+      meta: {
+        noTabbar: true
+      },
       component: () => import(/* webpackChunkName: "index" */ './pages/SearchPage/index'),
     },
   ],

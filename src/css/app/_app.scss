@@ -58,3 +58,17 @@ body {
     width: 1.5rem;
   }
 }
+
+.pm-header {
+  &.vux-header {
+    background-color: transparent;
+    .vux-header-title {
+      color: $color-text-main;
+      font-size: 1.05rem !important;
+      font-weight: 600
+    }
+    .vux-header-back {
+      visibility: hidden
+    }
+  }
+}

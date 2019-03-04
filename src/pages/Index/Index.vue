@@ -119,8 +119,14 @@ export default {
     this.getHotActivities()
     this.getRecomanderOrganization()
   },
+  mounted() {
+    setTimeout(() => {
+      this.scrollLock = false
+    }, 1500)
+  },
   data() {
     return {
+      scrollLock: true,
       searchValue: '',
       currentSwiperIndex: 0,
       swiperData: [],
@@ -153,7 +159,10 @@ export default {
      * 滚动加载更多
      */
     loadMore () {
-      console.log('触发滚动加载事件')
+      // 页面初始化时会出发该事件，增加一个变量延时2500ms用于修正函数执行
+      if (!this.scrollLock) {
+        console.log('触发滚动加载事件')
+      }
     },
     /**
      * 获取首页轮播图数据

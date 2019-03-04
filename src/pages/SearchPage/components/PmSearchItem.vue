@@ -38,7 +38,7 @@ export default {
      * 加载更多
      * @param {Object} institution 当前机构对象
      */
-    handleLoarMore(institution){
+    handleLoarMore(institution) {
       this.$emit('load-more', institution)
     }
   }

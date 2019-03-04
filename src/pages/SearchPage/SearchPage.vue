@@ -1,7 +1,7 @@
 <template>
   <div >
-    <x-header>
-      <div class="text-large">搜索</div>
+    <x-header class="pm-header">
+      <div>搜索</div>
     </x-header>
     <search
       @result-click="resultClick"
@@ -80,9 +80,9 @@ export default {
      * 处理加载更多课程事件
      * @param {Object} 点击的机构对象
      */
-     handleLoadMore(institution) {
-       console.log('需要加载更多的机构是', institution)
-     }
+    handleLoadMore(institution) {
+      console.log('需要加载更多的机构是', institution)
+    }
   }
 }
 </script>
