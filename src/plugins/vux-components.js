@@ -10,6 +10,9 @@ import {
   Flexbox,
   FlexboxItem,
   Panel,
+  Tabbar,
+  TabbarItem,
+  ViewBox,
 } from 'vux';
 
 Vue.component('xHeader', XHeader);
@@ -21,3 +24,6 @@ Vue.component('marquee-item', MarqueeItem);
 Vue.component('flexbox', Flexbox);
 Vue.component('flexbox-item', FlexboxItem);
 Vue.component('panel', Panel);
+Vue.component('tabbar', Tabbar);
+Vue.component('tabbar-item', TabbarItem);
+Vue.component('view-box', ViewBox);

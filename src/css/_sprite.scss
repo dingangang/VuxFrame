@@ -1,4 +1,4 @@
-$browser-default-font-size:20px;
+$browser-default-font-size:16px;
 
 @function pxToRem($px){
   @return $px / ( 2 * $browser-default-font-size) * 1rem;

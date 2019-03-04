@@ -1,18 +1,24 @@
 <template>
-  <div>
-    <loading v-model="isLoading"></loading>
-    <router-view></router-view>
+  <div style="height:100%">
+    <view-box ref="viewBox">
+      <loading v-model="isLoading"></loading>
+      <template-index>
+        <router-view></router-view>
+      </template-index>
+    </view-box>
   </div>
 </template>
 
 <script>
 import { Loading } from 'vux';
 import { mapState } from 'vuex';
+import TemplateIndex from '@/pages/TemplateIndex/index'
 
 export default {
   name: 'App',
   components: {
     Loading,
+    TemplateIndex
   },
   computed: {
     ...mapState({

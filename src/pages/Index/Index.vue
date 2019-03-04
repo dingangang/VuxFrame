@@ -110,10 +110,10 @@ export default {
       demo01_list: [
         {
           url: '',
-          img: require('@/assets/images/bg04.png'),
+          img: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=793493291,425094081&fm=26&gp=0.jpg',
         }, {
           url: '',
-          img: require('@/assets/images/bg04.png'),
+          img: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=793493291,425094081&fm=26&gp=0.jpg',
         },
       ],
       marqueeData: [],

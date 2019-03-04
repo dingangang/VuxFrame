@@ -7,12 +7,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/parent/index',
+      redirect: '/index',
     },
     {
-      path: '/parent/index',
-      name: 'parent-index',
-      component: () => import(/* webpackChunkName: "parent" */ './pages/Parents/Index/index'),
+      path: '/index',
+      name: 'index',
+      component: () => import(/* webpackChunkName: "index" */ './pages/Index/index'),
     },
   ],
 });
