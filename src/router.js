@@ -22,5 +22,13 @@ export default new Router({
       },
       component: () => import(/* webpackChunkName: "index" */ './pages/SearchPage/index'),
     },
+    {
+      path: '/message',
+      name: 'message',
+      meta: {
+        noTabbar: true
+      },
+      component: () => import(/* webpackChunkName: "index" */ './pages/MessagePage/index'),
+    },
   ],
 });

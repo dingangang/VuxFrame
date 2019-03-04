@@ -13,6 +13,9 @@ import {
   Tabbar,
   TabbarItem,
   ViewBox,
+  ButtonTab,
+  ButtonTabItem,
+  Badge
 } from 'vux';
 
 Vue.component('xHeader', XHeader);
@@ -27,3 +30,7 @@ Vue.component('panel', Panel);
 Vue.component('tabbar', Tabbar);
 Vue.component('tabbar-item', TabbarItem);
 Vue.component('view-box', ViewBox);
+Vue.component('button-tab', ButtonTab);
+Vue.component('button-tab-item', ButtonTabItem);
+Vue.component('badge', Badge);
+
