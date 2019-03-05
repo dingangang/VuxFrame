@@ -36,6 +36,7 @@
         >
           <pm-message-list
             :messages="messageRead"
+            @on-item-click="handleMessageItemClick"
           ></pm-message-list>
           <div
             class="text-center text-weakening"
@@ -51,6 +52,7 @@
         >
           <pm-message-list
             :messages="messageUnread"
+            @on-item-click="handleMessageItemClick"
           ></pm-message-list>
           <div
             class="text-center text-weakening"
@@ -113,6 +115,14 @@ export default {
      */
     handleTitleTabClick(index) {
       this.currentTab = index
+    },
+    /**
+     * 处理消息列表中项目的点击路由跳转
+     * param
+     */
+    handleMessageItemClick({ url, id }) {
+      console.log(url, id)
+      this.$router.push({ path: `${url}/${id}` })
     }
   },
 }

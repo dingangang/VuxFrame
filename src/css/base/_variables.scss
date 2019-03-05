@@ -50,8 +50,8 @@
  $color-text-secondary:#666 !default; // 辅助文本
  $color-text-weakening:#999 !default; // 弱化文本
  $color-text-disabled:#ccc !default; // 禁用文本
- $color-text-highlight:#07ffff !default; // 高亮文本
- $color-text-success: #f43c37 !default; // 反转文本
+ $color-text-highlight:#3EBA45 !default; // 高亮文本
+ $color-text-success: #FF391F  !default; // 反转文本
  $color-text-inverse: #fff !default; // 反转文本
  $color-text-link:$color-main !default; // 链接色
  $color-text-link-hover: hover($color-text-link) !default; // 链接滑过色
@@ -71,10 +71,10 @@
  $font-family-default: "Helvetica Neue", "Microsoft YaHei", "\5b8b\4f53", "Arial", "Helvetica", sans-serif !default; // 字体
 
  /* 字体尺寸{FontSize+} */
- $font-size-mini: 18px !default; // 小字体
- $font-size-default: 0.815rem !default; // 默认字号
+ $font-size-mini: 0.75rem !default; // 小字体
+ $font-size-default: 0.875rem !default; // 默认字号
  $font-size-small: 1rem !default; // 图表坐标、表格内容
- $font-size-medium: 24px !default; // 表头文字，小标题
+ $font-size-medium: 1.125rem !default; // 表头文字，小标题
  $font-size-large: 1.63rem !default; // 模块标题
  $font-size-huge: 40px !default; // 页面大标题
 

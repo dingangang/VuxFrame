@@ -5,7 +5,7 @@
       :auto="true"
       :loop="true"
       height="11.3rem"
-      :interval="50000"
+      :interval="5000"
       :list="swiperData"
       v-model="currentSwiperIndex"
       :min-moving-distance="120"

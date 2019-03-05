@@ -72,3 +72,89 @@ body {
     }
   }
 }
+
+.pm-tab {
+  .vux-tab {
+    width: 16rem;
+    .vux-tab-item {
+      flex: 0 0 4rem;
+      background: none;
+      .vux-tab-selected {
+        color: $color-text-highlight
+      }
+    }
+  }
+  .vux-tab-bar-inner {
+    background-color: $color-text-highlight
+  }
+}
+
+.pm-auth-info {
+  height: 2.5rem;
+  line-height: 2.5rem;
+  background-color: #fafafa;
+  .vux-flexbox-item {
+    text-align: center;
+    font-size: 0.875rem;
+    color: $color-text-secondary;
+    >i {
+      margin-right: $spacing-step
+    }
+  }
+}
+
+.pm-main-info {
+  display: flex;
+  flex-flow: column;
+  padding: 0.75rem 1rem;
+  &__header,
+  &__ft {
+    display: flex;
+    justify-content: space-between
+  }
+  &__ft {
+    margin-top: $spacing-step;
+    align-items: baseline;
+  }
+  &__consult {
+    flex: 0 0 4.375rem;
+    text-align: right
+  }
+  &__lbox {
+    flex: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  &__title {
+    width: 100%;
+    font-size: 1.315rem;
+    line-height: 1.845rem;
+    font-weight: 800;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  &__rtime {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: $color-text-secondary
+  }
+  &__price {
+    font-size: 1.625rem;
+    color: $color-text-success;
+    line-height: 2.28rem;
+    font-weight: 400;
+    margin-right: -0.5rem;
+  }
+  &__oprice {
+    font-size: 0.75rem;
+    line-height: 1.03rem;
+    color: $color-text-weakening;
+    vertical-align: baseline
+  }
+  &__enroll {
+    font-size: 0.875rem;
+    color: $color-text-weakening;
+  }
+}

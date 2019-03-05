@@ -4,7 +4,7 @@
       v-for="message in messages"
       :key="message.id"
       class="vux-1px-b"
-      @click="go(message.url)"
+      @click="handleClick(message.url, message.id)"
     >
       <div class="pm-message-item">
         <div class="pm-message-item__title">{{message.title}}</div>
@@ -36,10 +36,10 @@ export default {
     /**
      * 跳转路由
      * @param {String} url 跳转的路由
+     * @param {String} id id参数
      */
-    go(url) {
-      console.log('跳转路由到', url)
-      // this.$router.push(url)
+    handleClick(url, id) {
+      this.$emit('on-item-click', { url, id })
     }
   },
 }
