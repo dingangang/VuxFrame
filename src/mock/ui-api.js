@@ -85,7 +85,31 @@ if (process.env.NODE_ENV === 'development') {
           desc: '@CPARAGRAPH(2,5)'
         }
       ]
-    }
+    },
+    'lessons|3-4': [
+      {
+        id: '@ID',
+        src: 'http://cos.solepic.com/20180521/s_4067355_201805211526214297.jpg',
+        title: '@CWORD(5,15)课程',
+        subTitle: '已报名@INTEGER(300,1000)人',
+        price: '￥@FLOAT(6,30,1,1)',
+        originPrice: '￥@FLOAT(6,30,1,1)',
+      }
+    ],
+    'activities|3-5': [
+      {
+        id: '@ID',
+        title: '@CTITLE(5,32)',
+        activityTime: '@DATE("MM/dd HH:mm:ss")',
+        'status|1': ['on', 'off'],
+        src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551860220558&di=b3f29c6baa78533c3647e2f1e752ed97&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201503%2F02%2F20150302125348_5vwjQ.thumb.224_0.jpeg',
+        desc: '@CPARAGRAPH(30,50)',
+        location: '@CITY',
+        distance: '@FlOAT(3,8,1,1)km',
+        time: '@DATE("MM/dd HH:mm:ss")',
+        url: '/activity-details'
+      }
+    ]
 
   })
   // 机构列表页

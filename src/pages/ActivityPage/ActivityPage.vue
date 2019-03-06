@@ -88,7 +88,7 @@
 </template>
 
 <script>
-import ActivityList from './components/ActicvityList'
+import ActivityList from '@/components/activity-list/acticvity-list'
 
 export default {
   name: 'ActivityPage',

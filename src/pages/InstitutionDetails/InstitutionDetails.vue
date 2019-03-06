@@ -131,23 +131,61 @@
               </div>
             </li>
           </ul>
-          <div class="pm-bottom-group">
-            <a class="pm-bottom-group__btn vux-1px-t">评价</a>
-            <a
-              class="pm-bottom-group__btn has-color"
-              @click.prevent="handleConsultClick"
-            >咨询</a>
-          </div>
         </div>
-        <div class="tab-pane" v-if="currentTabIndex === 1">1</div>
-        <div class="tab-pane" v-if="currentTabIndex === 2">2</div>
+        <div class="tab-pane" v-if="currentTabIndex === 1">
+          <flexbox
+            class="pm-lesson-wares"
+            :gutter="0"
+            wrap="wrap"
+          >
+            <flexbox-item
+              v-for="lesson in lessons"
+              :key="lesson.id"
+              :span="1/2"
+              class="pm-lesson-ware"
+            >
+              <div class="pm-lesson-ware__img">
+                <img :src="lesson.src" alt="lesson">
+              </div>
+              <div class="pm-lesson-ware__title">
+                {{lesson.title}}
+              </div>
+              <div class="pm-lesson-ware__subTitle mt-step">
+                {{lesson.subTitle}}
+              </div>
+              <div>
+                <span class="pm-lesson-ware__price">{{lesson.price}}</span>
+                <span  class="pm-lesson-ware__oprice">{{lesson.originPrice}}</span>
+              </div>
+            </flexbox-item>
+          </flexbox>
+          <div
+            v-if="lessons.length > 0"
+            class="text-center text-weakening"
+            style="line-height:2.4rem"
+            @click="loadMore"
+          >查看更多课程</div>
+        </div>
+        <div class="tab-pane" v-if="currentTabIndex === 2">
+          <activity-list
+            :list="activities"
+          ></activity-list>
+        </div>
       </div>
+    </div>
+    <div class="pm-bottom-group">
+      <a class="pm-bottom-group__btn vux-1px-t">评价</a>
+      <a
+        class="pm-bottom-group__btn has-color"
+        @click.prevent="handleConsultClick"
+      >咨询</a>
     </div>
   </div>
 </template>
 
 <script>
 import ScrollImg from '@/components/scroll-img/scroll-img'
+import ActivityList from '@/components/activity-list/acticvity-list'
 import ComprehensiveScore from './components/ComprehensiveScore'
 
 export default {
@@ -176,14 +214,23 @@ export default {
           subItems: []
         },
         comments: []
-      }
+      },
+      lessons: [],
+      activities: []
     }
   },
   components: {
     ScrollImg,
-    ComprehensiveScore
+    ComprehensiveScore,
+    ActivityList
   },
   methods: {
+    /**
+     * 加载更多课程，此处没有使用滚动加载
+     */
+    loadMore() {
+      console.log('按需加载更多课程')
+    },
     /**
      * 咨询按钮点击事件
      */
@@ -210,6 +257,8 @@ export default {
           this.institutionHeaderSrc = res.data.institutionHeaderSrc
           this.institutionInfo = res.data.institutionInfo
           this.briefIntroduction = res.data.briefIntroduction
+          this.lessons = res.data.lessons
+          this.activities = res.data.activities
         })
         .catch((err) => {
           console.error(err)

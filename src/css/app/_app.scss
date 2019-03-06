@@ -230,3 +230,42 @@ body {
   background-color: $color-bg-card;
   // background-color: red;
 }
+
+.pm-lesson-wares {
+  padding: 1rem 1rem 0;
+}
+.pm-lesson-ware {
+  margin-bottom: 1.2rem;
+  &:nth-child(even) {
+    .pm-lesson-ware__img {
+      text-align: right
+    }
+  }
+  &__img {
+    >img {
+      width: 10.47rem;
+      height: 6rem;
+      border-radius: 5px;
+    }
+  }
+  &__title {
+    margin-top: $spacing-tiny;
+    padding-right: 0.3rem;
+    font-size: 0.94rem;
+    line-height: 1.31rem;
+    font-weight: 600;
+    @include ellipsis()
+  }
+  &__subTitle,
+  &__oprice {
+    font-size: 0.75rem;
+    line-height: 1.03rem;
+    color: $color-text-weakening
+  }
+  &__price {
+    margin-right: -0.2rem;
+    font-size: 1rem;
+    color: $color-text-success;
+    line-height: 1.6rem;
+  }
+}
