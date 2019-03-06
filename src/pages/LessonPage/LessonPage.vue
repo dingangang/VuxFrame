@@ -119,7 +119,7 @@
 
 
 <script>
-import { Swiper, Tab, TabItem } from 'vux'
+import { Swiper } from 'vux'
 
 export default {
   name: 'lessen-page',
@@ -144,8 +144,6 @@ export default {
   },
   components: {
     Swiper,
-    TabItem,
-    Tab
   },
   methods: {
     /**

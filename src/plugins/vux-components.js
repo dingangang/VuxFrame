@@ -15,7 +15,9 @@ import {
   ViewBox,
   ButtonTab,
   ButtonTabItem,
-  Badge
+  Badge,
+  Tab,
+  TabItem,
 } from 'vux';
 
 Vue.component('xHeader', XHeader);
@@ -33,4 +35,6 @@ Vue.component('view-box', ViewBox);
 Vue.component('button-tab', ButtonTab);
 Vue.component('button-tab-item', ButtonTabItem);
 Vue.component('badge', Badge);
+Vue.component('tab', Tab);
+Vue.component('tab-item', TabItem);
 

@@ -47,10 +47,27 @@ export default new Router({
       name: 'activity-page',
       component: () => import(/* webpackChunkName: "lesson" */ './pages/ActivityPage/index'),
     },
+
     {
       path: '/activity-details/:id',
       name: 'activity-details',
       component: () => import(/* webpackChunkName: "lesson" */ './pages/ActivityDetails/index'),
     },
+    {
+      path: '/institution-page',
+      name: 'institution-page',
+      component: () => import(/* webpackChunkName: "lesson" */ './pages/InstitutionPage/index'),
+    },
+    {
+      path: '/institution-details/:id',
+      name: 'institution-details',
+      component: () => import(/* webpackChunkName: "lesson" */ './pages/InstitutionDetails/index'),
+    },
+    {
+      // 请保持错误页在最后
+      path: '*',
+      name: 'error-page',
+      component: () => import(/* webpackChunkName: "error" */ './pages/ErrorPage/index'),
+    }
   ],
 });

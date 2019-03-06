@@ -20,17 +20,16 @@
       <li
         v-for="institution in searchData"
         :key="institution.id">
-        <pm-search-item
+        <pm-institution-item
           :institution="institution"
           @load-more="handleLoadMore"
-        ></pm-search-item>
+        ></pm-institution-item>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import PmSearchItem from './components/PmSearchItem'
 
 export default {
   name: 'search-page',
@@ -45,9 +44,6 @@ export default {
       results: [{ title: '可以放置一些快捷选项', otherData: 123 }],
       searchData: []
     }
-  },
-  components: {
-    PmSearchItem
   },
   methods: {
     resultClick(param) {

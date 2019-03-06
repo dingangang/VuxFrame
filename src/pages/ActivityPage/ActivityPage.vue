@@ -88,7 +88,6 @@
 </template>
 
 <script>
-import { Tab, TabItem } from 'vux'
 import ActivityList from './components/ActicvityList'
 
 export default {
@@ -109,8 +108,6 @@ export default {
     }
   },
   components: {
-    TabItem,
-    Tab,
     ActivityList
   },
   methods: {

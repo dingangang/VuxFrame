@@ -2,6 +2,7 @@
   <div class="pm-block-header">
     <span class="pm-block-header__label">{{label}}</span>
     <a
+      v-if="link"
       class="pm-block-header__suffix pull-right"
       @click="handleSuffixClick"
     >

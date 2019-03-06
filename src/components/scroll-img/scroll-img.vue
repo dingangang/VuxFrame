@@ -1,19 +1,24 @@
 <template>
   <ul class="pm-scroll-img">
-    <li
-      v-for="item in imgList"
-      :key="item.id"
-      class="pm-scroll-img__item"
-      @click="go(item.link)"
-    >
-      <p class="pm-scroll-img__title">{{item.title}}</p>
-      <p class="pm-scroll-img__subTitle">{{item.subTitle}}</p>
-      <img
-        :src="item.src"
-        alt="img"
-        class="pm-scroll-img__img"
-       >
-    </li>
+    <slot>
+      <template v-if="type === 'img'">
+        <li
+          v-for="item in imgList"
+          :key="item.id"
+          class="pm-scroll-img__item"
+          :class="`pm-scroll-img__item--${itemSize}`"
+          @click="go(item.link)"
+        >
+          <p class="pm-scroll-img__title">{{item.title}}</p>
+          <p class="pm-scroll-img__subTitle">{{item.subTitle}}</p>
+          <img
+            :src="item.src"
+            alt="img"
+            class="pm-scroll-img__img"
+          >
+        </li>
+      </template>
+    </slot>
   </ul>
 </template>
 
@@ -25,6 +30,14 @@ export default {
       type: Array,
       default: () => [],
     },
+    type: {
+      type: String,
+      default: 'img'
+    },
+    itemSize: {
+      type: String,
+      default: 'default'
+    }
   },
   methods: {
     /**
@@ -47,13 +60,19 @@ export default {
   &__item {
     position: relative;
     display: inline-block;
-    width: 10rem;
-    height: 5.725rem;
     margin: 0.75rem 0 1rem 1rem;
     padding: 1.6rem 0.75rem;
     // background: rgba(0,0,0,0.4)
     &:last-child {
       margin-right: 1rem;
+    }
+    &--default {
+      width: 10rem;
+      height: 5.725rem;
+    }
+    &--tiny {
+      width: 6rem;
+      height: 6rem;
     }
   }
   &__title,

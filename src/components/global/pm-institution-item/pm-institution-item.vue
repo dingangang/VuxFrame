@@ -1,15 +1,15 @@
 <template>
-  <div class="pm-search-item">
-    <div class="pm-search-item__title vux-1px-b">
+  <div class="pm-institution-item">
+    <div class="pm-institution-item__title vux-1px-b">
     {{institution.title}}
-    <div class="pull-right pm-search-item__distance">{{institution.distance}}</div>
+    <div class="pull-right pm-institution-item__distance">{{institution.distance}}</div>
     </div>
     <pm-panel
       :list="institution.courses"
       @on-img-error="onImgError"
     ></pm-panel>
     <div
-      class="pm-search-item__lm"
+      class="pm-institution-item__lm"
       @click="handleLoarMore(institution)"
     >加载更多</div>
   </div>
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'pm-search-item',
+  name: 'pm-institution-item',
   props: {
     institution: {
       type: Object,
@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.pm-search-item {
+.pm-institution-item {
   margin-bottom: 0.75rem;
   &__title{
     margin: 0 1rem -10px;

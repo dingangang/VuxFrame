@@ -110,6 +110,14 @@ body {
       margin-right: $spacing-step
     }
   }
+  &.pm-auth-info--reverse {
+    position: absolute;
+    bottom: -0.2rem;
+    background-color: rgba(255,255,255,0.2);
+    .vux-flexbox-item {
+      color: #fff;
+    }
+  }
 }
 
 .pm-main-info {
@@ -196,4 +204,10 @@ body {
       border-left: 1px solid #e5e5e5;
     }
   }
+}
+
+.v-title {
+  padding: 1rem;
+  font-size: 1rem;
+  line-height: 1.4rem;
 }

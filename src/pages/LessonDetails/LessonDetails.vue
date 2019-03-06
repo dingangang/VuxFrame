@@ -147,7 +147,7 @@
 
 
 <script>
-import { Swiper, Tab, TabItem } from 'vux'
+import { Swiper } from 'vux'
 
 export default {
   name: 'lesson-details',
@@ -178,8 +178,6 @@ export default {
   },
   components: {
     Swiper,
-    TabItem,
-    Tab
   },
   methods: {
     /**

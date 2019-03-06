@@ -13,6 +13,68 @@ if (process.env.NODE_ENV === 'development') {
   Mock.mock(/test$/, {
     msg: 'hello from mockjs.'
   })
+  // 机构详情页
+  Mock.mock(/get-institution-details-data$/, {
+    isCollected: '@BOOLEAN',
+    institutionHeaderSrc: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=793493291,425094081&fm=26&gp=0.jpg',
+    institutionInfo: {
+      src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg',
+      title: '@CWORD(5,8)机构',
+      subTitle: '0-8岁儿童音乐舞蹈培训',
+      suffix: '评分：暂无'
+    },
+    briefIntroduction:　{
+      'videos|3-5': [
+        {
+          id: '@ID',
+          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg'
+        }
+      ],
+      'album|3-5': [
+        {
+          id: '@ID',
+          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg'
+        }
+      ],
+      introduction: [
+        {
+          label: '名称',
+          text: '湖南向导教育管理有限公司',
+        },
+        {
+          label: '地点',
+          text: '张家界',
+        },
+        {
+          label: '简介',
+          text: '@CPARAGRAPH(2,4)',
+        },
+      ]
+    }
+
+  })
+  // 机构列表页
+  Mock.mock(/get-institutions-data$/, {
+    'dataset|2-4': [
+      {
+        id: '@ID',
+        title: '@CWORD(4,7)机构',
+        distance: '@FLOAT(0,4,1,1)km',
+        'courses|1-2': [
+          {
+            id: '@id',
+            src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg',
+            title: '@CWORD(3,8)',
+            desc: '@INTEGER(100,300)人已报名',
+            auths: ['12节', '小学', '每周2-5次'],
+            price: '￥@FlOAT(10,12,2,2)',
+            originPrice: '￥@FlOAT(12,20,2,2)',
+            url: '/institution-details'
+          }
+        ]
+      }
+    ]
+  })
   // 活动详情
   Mock.mock(/get-activity-detail-info$/, {
     isCollected: '@BOOLEAN',
@@ -186,7 +248,7 @@ if (process.env.NODE_ENV === 'development') {
             auths: ['12节', '小学', '每周2-5次'],
             price: '￥@FlOAT(10,12,2,2)',
             originPrice: '￥@FlOAT(12,20,2,2)',
-            url: '/somewhere'
+            url: '/institution-details'
           }
         ]
       }
