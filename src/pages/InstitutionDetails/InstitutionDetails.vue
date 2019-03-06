@@ -1,5 +1,15 @@
 <template>
   <div class="page">
+    <x-header class="pm-header" style="position: absolute; width: 100%">
+      <i
+        slot="right"
+        @click="handleStarClick"
+        class="icon"
+        :class="isCollected
+        ? `icon-detail_mark_selected`
+        : `icon-detail_mark_normal`"
+      ></i>
+    </x-header>
     <div
       class="pm-institution-bg"
       :style="`background-image: url('${institutionHeaderSrc}')`"
@@ -32,17 +42,7 @@
         </flexbox>
       </div>
     </div>
-    <x-header class="pm-header">
-      <i
-        slot="right"
-        @click="handleStarClick"
-        class="icon"
-        :class="isCollected
-        ? `icon-detail_mark_selected`
-        : `icon-detail_mark_normal`"
-      ></i>
-    </x-header>
-    <div style="margin-top: 10rem">
+    <div>
       <tab
         :line-width="1"
       >
@@ -58,7 +58,10 @@
         >活动</tab-item>
       </tab>
       <div class="tab-panes">
-        <div class="tab-pane" v-if="currentTabIndex === 0">
+        <div
+          class="tab-pane"
+          v-if="currentTabIndex === 0"
+        >
           <pm-block-header
             class="mt-medium"
             label="视频"
@@ -66,17 +69,20 @@
           <scroll-img
             :imgList="briefIntroduction.videos"
             item-size="tiny"
+            type="video"
           ></scroll-img>
+          <div class="x-gap"></div>
           <pm-block-header
-            class="mt-huge"
+            class="mt-medium"
             label="相册"
           ></pm-block-header>
           <scroll-img
             :imgList="briefIntroduction.album"
             item-size="tiny"
           ></scroll-img>
+          <div class="x-gap"></div>
           <pm-block-header
-            class="mt-huge"
+            class="mt-medium"
             label="简介"
           ></pm-block-header>
           <ul style="padding: 0.75rem 1rem">
@@ -88,6 +94,50 @@
               {{item.label}}：{{item.text}}
             </li>
           </ul>
+          <div class="x-gap"></div>
+          <pm-block-header
+            class="mt-medium"
+            label="综合评分"
+          ></pm-block-header>
+          <comprehensive-score
+            :scores="briefIntroduction.comprehensive"
+          ></comprehensive-score>
+          <div class="vux-1px-t ml-medium mr-medium"></div>
+          <pm-block-header
+            class="mt-medium "
+            label="评论"
+          ></pm-block-header>
+          <ul class="pm-comment-list">
+            <li
+              v-for="comment in briefIntroduction.comments"
+              :key="comment.id"
+              class="pm-comment-item"
+            >
+              <div class="pm-comment-item__header">
+                <div>
+                  <img class="pm-comment-item__portrait" :src="comment.portraitSrc" alt="portrait">
+                  <span class="pm-comment-item__name">{{comment.name}}</span>
+                  <div class="pm-comment-item__vip">
+                    <i class="icon icon-detail_identity"></i>
+                    {{comment.vipRank}}
+                  </div>
+                </div>
+                <div  class="pm-comment-item__time">
+                  {{comment.time}}
+                </div>
+              </div>
+              <div class="pm-comment-item__desc vux-1px-b">
+                {{comment.desc}}
+              </div>
+            </li>
+          </ul>
+          <div class="pm-bottom-group">
+            <a class="pm-bottom-group__btn vux-1px-t">评价</a>
+            <a
+              class="pm-bottom-group__btn has-color"
+              @click.prevent="handleConsultClick"
+            >咨询</a>
+          </div>
         </div>
         <div class="tab-pane" v-if="currentTabIndex === 1">1</div>
         <div class="tab-pane" v-if="currentTabIndex === 2">2</div>
@@ -98,6 +148,7 @@
 
 <script>
 import ScrollImg from '@/components/scroll-img/scroll-img'
+import ComprehensiveScore from './components/ComprehensiveScore'
 
 export default {
   name: 'institution-details',
@@ -106,6 +157,7 @@ export default {
   },
   data() {
     return {
+      showToastValue: true,
       isCollected: false,
       institutionHeaderSrc: '',
       institutionInfo: {
@@ -117,14 +169,27 @@ export default {
       currentTabIndex: 0,
       briefIntroduction: {
         videos: [],
-        album: []
+        album: [],
+        introduction: [],
+        comprehensive: {
+          total: '',
+          subItems: []
+        },
+        comments: []
       }
     }
   },
   components: {
     ScrollImg,
+    ComprehensiveScore
   },
   methods: {
+    /**
+     * 咨询按钮点击事件
+     */
+    handleConsultClick() {
+      console.log('启动咨询')
+    },
     /**
      * 处理tab页签点击事件
      * @param {Number} index 当前 tabItem序号
@@ -139,6 +204,7 @@ export default {
     getInstitutionData() {
       this.axios.get('/get-institution-details-data')
         .then((res) => {
+          console.log('%c注意，跳转video页面的link不带"/"字符', 'color:red')
           console.log('机构详情数据', res)
           this.isCollected = res.data.isCollected
           this.institutionHeaderSrc = res.data.institutionHeaderSrc
@@ -155,6 +221,14 @@ export default {
     handleStarClick() {
       this.isCollected = !this.isCollected
       console.log(`现在收藏选项的状态是${this.isCollected}`)
+      this.$vux.toast.show({
+        text: '收藏成功',
+        type: 'sucess'
+      })
+      // this.$vux.toast.show({
+      //   text: '取消成功',
+      //   type: 'cancel'
+      // })
     },
   }
 }
@@ -162,15 +236,13 @@ export default {
 
 <style scoped lang="scss">
 .pm-institution-bg {
-  position: absolute;
-  top: 0;
+  position: relative;
   width: 100%;
   height: 12.875rem;
   padding-top: 3.125rem;
   z-index: -1;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: contain;
+  background-size: cover;
   &:after{
     content: "";
     width:100%;
@@ -185,7 +257,7 @@ export default {
 }
 .pm-institution-info {
   display: flex;
-  padding: 0.25rem 1rem;
+  padding: 1.5rem 1rem;
   justify-content: space-between;
   &__img {
     flex: 0 0 4.125rem;
@@ -223,6 +295,51 @@ export default {
     line-height: 1rem;
     color: #fff;
     opacity: 0.4;
+  }
+}
+.pm-comment-list {
+  margin-top: 0.75rem;
+  padding: 0 1rem;
+}
+
+.pm-comment-item {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline
+  }
+  &__portrait {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%
+  }
+  &__name {
+    font-size: 0.94rem;
+    font-weight: 600
+  }
+  &__time {
+    font-size: 0.75rem;
+    color: $color-text-weakening
+  }
+  &__vip {
+    display: inline-block;
+    background: #FF9A00;
+    border-radius: 1rem;
+    height: 1.0625rem;
+    line-height: 1.0625rem;
+    min-width: 2.1rem;
+    vertical-align: middle;
+    font-size: 0.75rem;
+    color: #fff;
+    >.icon {
+      vertical-align: sub;
+    }
+  }
+  &__desc {
+    padding: 0.5rem 0 1rem
+  }
+  &+& {
+    margin-top: $spacing-medium
   }
 }
 </style>

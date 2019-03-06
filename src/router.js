@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
+import VideoPlayer from './pages/VideoPlayer/index'
+
 Vue.use(Router);
 
 export default new Router({
@@ -62,6 +64,12 @@ export default new Router({
       path: '/institution-details/:id',
       name: 'institution-details',
       component: () => import(/* webpackChunkName: "lesson" */ './pages/InstitutionDetails/index'),
+    },
+    {
+      path: '/video-player',
+      name: 'video-player',
+      props: true,
+      component: VideoPlayer,
     },
     {
       // 请保持错误页在最后

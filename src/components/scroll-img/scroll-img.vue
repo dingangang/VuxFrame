@@ -18,6 +18,26 @@
           >
         </li>
       </template>
+      <template v-if="type === 'video'">
+        <li
+          v-for="item in imgList"
+          :key="item.id"
+          class="pm-scroll-img__item"
+          :class="`pm-scroll-img__item--${itemSize}`"
+          @click="linkVideo(item.link, item.videoSrc, item.resourceType)"
+          style="background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;"
+        >
+          <div class="pm-scroll-img__videoMask">
+            <i class="icon icon-detail_play"></i>
+            <img
+              :src="item.src"
+              alt="img"
+              class="pm-scroll-img__img"
+            >
+          </div>
+        </li>
+      </template>
     </slot>
   </ul>
 </template>
@@ -47,6 +67,14 @@ export default {
     go(link) {
       console.log('link', link)
       this.$router.push(link)
+    },
+    /**
+     * 跳转到特定路由
+     * @param {String} link 跳转的路由
+     */
+    linkVideo(link, videoSrc, resourceType) {
+      console.log('link', link)
+      this.$router.push({ name: link, params: { videoSrc: videoSrc, resourceType: resourceType } })
     },
   },
 }
@@ -98,6 +126,10 @@ export default {
     height: 100%;
     border-radius: 8px;
     z-index: -1
+  }
+  &__videoMask {
+    text-align: center;
+    line-height: 3rem;
   }
 }
 </style>

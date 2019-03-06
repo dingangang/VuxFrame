@@ -175,6 +175,25 @@ body {
     color: $color-text-weakening;
   }
 }
+.pm-bottom-group {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  height: 3.5rem;
+  text-align: center;
+  background: #fff;
+  &__btn {
+    flex: 1;
+    line-height: 3.5rem;
+    font-size: 1rem;
+    color: #3EBA45;
+  }
+  .has-color {
+    color: #fff;
+    background: linear-gradient(90deg, #4EDA59 0%, #3EBA45 100%);
+  }
+}
 .pm-consultant {
   position: fixed;
   bottom: 0;
@@ -206,8 +225,8 @@ body {
   }
 }
 
-.v-title {
-  padding: 1rem;
-  font-size: 1rem;
-  line-height: 1.4rem;
+.x-gap {
+  height: 0.75rem;
+  background-color: $color-bg-card;
+  // background-color: red;
 }

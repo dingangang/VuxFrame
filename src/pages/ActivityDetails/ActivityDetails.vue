@@ -199,6 +199,14 @@ export default {
     handleStarClick() {
       this.isCollected = !this.isCollected
       console.log(`现在收藏选项的状态是${this.isCollected}`)
+      this.$vux.toast.show({
+        text: '收藏成功',
+        type: 'sucess'
+      })
+      // this.$vux.toast.show({
+      //   text: '取消成功',
+      //   type: 'cancel'
+      // })
     },
     /**
      * 获取轮播图数据

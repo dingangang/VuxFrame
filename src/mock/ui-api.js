@@ -27,13 +27,17 @@ if (process.env.NODE_ENV === 'development') {
       'videos|3-5': [
         {
           id: '@ID',
-          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg'
+          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg',
+          link: 'video-player',
+          videoSrc: 'http://cloud.video.taobao.com/play/u/2554798718/p/1/e/6/t/1/56367913.mp4',
+          resourceType: 'video/mp4'
         }
       ],
       'album|3-5': [
         {
           id: '@ID',
-          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg'
+          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg',
+          link: '/somewhere'
         }
       ],
       introduction: [
@@ -49,6 +53,37 @@ if (process.env.NODE_ENV === 'development') {
           label: '简介',
           text: '@CPARAGRAPH(2,4)',
         },
+      ],
+      comprehensive: {
+        total: '@FLOAT(0,4,1,1)',
+        subItems: [
+          {
+            label: '教学环境',
+            score: '@FLOAT(0,4,1,1)',
+          },
+          {
+            label: '专业水平',
+            score: '@FLOAT(0,4,1,1)',
+          },
+          {
+            label: '教学水平',
+            score: '@FLOAT(0,4,1,1)',
+          },
+          {
+            label: '服务态度',
+            score: '@FLOAT(0,4,1,1)',
+          },
+        ]
+      },
+      'comments|3-5': [
+        {
+          id: '@ID',
+          portraitSrc:　'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551888415959&di=1bbd074fefd2e1000fa842898b3b943b&imgtype=0&src=http%3A%2F%2Fimg5.duitang.com%2Fuploads%2Fitem%2F201405%2F10%2F20140510204029_vRTkt.jpeg',
+          name: '@NAME',
+          vipRank: '@INTEGER(1,9)',
+          time: '@DATE("yyyy/MM/dd")',
+          desc: '@CPARAGRAPH(2,5)'
+        }
       ]
     }
 

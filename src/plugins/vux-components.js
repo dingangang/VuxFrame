@@ -18,6 +18,8 @@ import {
   Badge,
   Tab,
   TabItem,
+  Card,
+  ToastPlugin
 } from 'vux';
 
 Vue.component('xHeader', XHeader);
@@ -37,4 +39,6 @@ Vue.component('button-tab-item', ButtonTabItem);
 Vue.component('badge', Badge);
 Vue.component('tab', Tab);
 Vue.component('tab-item', TabItem);
+Vue.component('card', Card);
 
+Vue.use(ToastPlugin)
