@@ -21,6 +21,9 @@
       @ready="playerReadied"
     >
     </video-player>
+    <p>此页面路由跳转用了props解析,所带参数params转成组件props</p>
+    <p>videoSrc:{{videoSrc}}</p>
+    <p>resourceType:{{resourceType}}</p>
   </div>
 </template>
 
