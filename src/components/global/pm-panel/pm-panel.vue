@@ -42,7 +42,7 @@
                   {{item.price}}
                   <span
                     class="text-default text-secondary text-normal"
-                    style="margin-left: -5px"
+                    style="margin-left: -5px;"
                   >{{item.originPrice}}</span></span>
               </p>
             </div>
@@ -84,7 +84,7 @@
     </div>
     <!-- 放置一个原生panel,用于引入样式文件 -->
     <panel
-      style="display:none"
+      style="display:none;"
     ></panel>
   </div>
 </template>
@@ -125,37 +125,43 @@ export default {
 
 <style scoped lang="scss">
 .pm-panel {
-  &.weui-panel:before {
-    content: none
+  &.weui-panel::before {
+    content: none;
   }
-  .weui-media-box_appmsg{
+
+  .weui-media-box_appmsg {
     align-items: stretch;
+
     .weui-media-box__hd {
       height: 5.625rem;
       width: 5.625rem;
       line-height: 5.625rem;
-
     }
+
     .weui-media-box__bd {
       display: flex;
       flex-flow: column;
-      justify-content: space-between
+      justify-content: space-between;
     }
+
     .weui-media-box__desc {
       position: relative;
-      line-height: 1.4
+      line-height: 1.4;
     }
   }
+
   &__distance {
     position: absolute;
     right: 0;
     bottom: 0;
   }
 }
+
 .pm-auth {
   margin: 0 0.5rem 0.3rem 0;
   overflow: hidden;
   white-space: nowrap;
+
   &__item {
     display: inline-block;
     background: rgba(233, 90, 39, 0.1);
@@ -164,19 +170,21 @@ export default {
     line-height: 1.125rem;
     padding: 0 0.3rem;
     font-size: 0.75rem;
-    color: #E8541E
+    color: #e8541e;
   }
 }
 
 .pm-panel.pm-panel--type2 {
-  .weui-media-box_appmsg{
+  .weui-media-box_appmsg {
     .weui-media-box__hd {
       height: 5.625rem;
       width: 8.75rem;
       line-height: 5.625rem;
     }
+
     .weui-media-box__title {
       @include line-clamp();
+
       white-space: normal;
     }
   }

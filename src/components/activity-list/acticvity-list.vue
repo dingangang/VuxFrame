@@ -66,15 +66,19 @@ export default {
   background: $color-bg-card;
   padding-top: 0.75rem;
 }
+
 .pm-activity-item {
   background: #fff;
+
   &__title {
     padding: 0.75rem 1rem 0.25rem;
     font-size: $font-size-small;
     line-height: 1.41rem;
     font-weight: 600;
-    @include line-clamp()
+
+    @include line-clamp();
   }
+
   &__status {
     display: flex;
     justify-content: space-between;
@@ -82,34 +86,42 @@ export default {
     font-size: 0.815rem;
     color: $color-text-weakening;
   }
+
   &__statu {
     height: 1.25rem;
     line-height: 1.125rem;
     width: 4rem;
     text-align: center;
+
     &--on {
       color: $color-text-tip;
       border: 1px solid $color-text-tip;
       background: rgba(255, 103, 34, .1);
     }
+
     &--off {
       color: $color-text-disabled;
       border: 1px solid $color-text-disabled;
       background: rgba(204, 204, 204, .1);
     }
   }
+
   &__img {
     padding: 0.5rem 1rem 0.8rem;
-    >img {
+
+    > img {
       border-radius: 4px;
       max-height: 8.5rem;
     }
   }
+
   &__desc {
     padding: 0 1rem;
     line-height: 1.15rem;
-    @include line-clamp(3)
+
+    @include line-clamp(3);
   }
+
   &__location {
     margin: 0 1rem;
     padding: 0.5rem 0;
@@ -117,6 +129,7 @@ export default {
     color: $color-text-weakening;
     font-size: 0.815rem;
   }
+
   &__ft {
     display: flex;
     justify-content: space-between;
@@ -125,8 +138,9 @@ export default {
     color: $color-text-weakening;
     line-height: 2.69rem;
   }
-  &+.pm-activity-item {
-    margin-top: 0.75rem
+
+  & + .pm-activity-item {
+    margin-top: 0.75rem;
   }
 }
 </style>

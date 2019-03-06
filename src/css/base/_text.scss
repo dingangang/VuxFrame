@@ -33,7 +33,7 @@
 }
 
 .text-before-text {
-  color:  $color-text-before-text !important;
+  color: $color-text-before-text !important;
 }
 
 .text-dlink {
@@ -73,7 +73,7 @@
 }
 
 .text-yellow {
-  color: $color-text-yellow
+  color: $color-text-yellow;
 }
 
 .text-error {
@@ -142,5 +142,6 @@
 // 文本超出省略
 .text-ellipsis {
   display: inline-block;
+
   @include ellipsis;
 }

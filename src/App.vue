@@ -1,5 +1,5 @@
 <template>
-  <div style="height:100%">
+  <div style="height:100%;">
     <view-box ref="viewBox">
       <loading v-model="isLoading"></loading>
       <template-index>

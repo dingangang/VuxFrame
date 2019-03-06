@@ -40,7 +40,7 @@
           ></pm-message-list>
           <div
             class="text-center text-weakening"
-            style="line-height:2.4rem"
+            style="line-height:2.4rem;"
           >加载更多</div>
         </div>
       </div>
@@ -56,7 +56,7 @@
           ></pm-message-list>
           <div
             class="text-center text-weakening"
-            style="line-height:2.4rem"
+            style="line-height:2.4rem;"
           >加载更多</div>
         </div>
       </div>
@@ -129,16 +129,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.pm-title-tab{
+.pm-title-tab {
   height: 40px;
+
   .vux-button-group {
     justify-content: space-around;
+
     .vux-button-group-current {
       background: transparent;
-      color: #3EBA45;
-      border-bottom: 1px solid #3EBA45
+      color: #3eba45;
+      border-bottom: 1px solid #3eba45;
     }
   }
+
   .vux-button-tab-item {
     position: relative;
     flex: 0;
@@ -146,13 +149,16 @@ export default {
     line-height: 40px;
     border-radius: 0;
     color: $color-text-secondary;
-    &:after {
+
+    &::after {
       content: none;
     }
+
     .vux-badge {
       position: absolute;
       right: -1.3125rem;
       top: 2px;
+
       &.vux-badge-single {
         right: -0.6875rem;
       }

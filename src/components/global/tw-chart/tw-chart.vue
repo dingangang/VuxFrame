@@ -325,6 +325,7 @@ export default {
 .tw-chart {
   position: relative;
 }
+
 .tw-chart .echarts {
   width: 100%;
 }

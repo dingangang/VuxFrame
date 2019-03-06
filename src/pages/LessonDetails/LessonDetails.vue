@@ -69,7 +69,7 @@
         <div class="pm-main-info__enroll">已报名{{lessonInfo.enrolledNumber}}</div>
       </div>
     </div>
-    <div style="background: #f8f9fa;padding-top: 0.75rem">
+    <div style="background: #f8f9fa; padding-top: 0.75rem;">
       <tab
         :line-width="1"
       >
@@ -92,7 +92,7 @@
               v-for="(info,index) in schedule.infos"
               :key="index"
               class="mt-step"
-              style="line-height:1.4rem; font-size: 0.94rem"
+              style="line-height:1.4rem; font-size: 0.94rem;"
             >
               {{info.label}}：{{info.text}}
             </div>
@@ -101,12 +101,12 @@
         </div>
         <div class="tab-pane" v-if="currentTabIndex === 1">
           <p class="p-medium text-small text-bold">课程详情</p>
-          <img style="width: 100%" :src="lessonDetailSrc" alt="img">
+          <img style="width: 100%;" :src="lessonDetailSrc" alt="img">
         </div>
         <div class="tab-pane" v-if="currentTabIndex === 2">
           <p
             class="text-small text-bold"
-            style="padding: 1rem 1rem 0;margin-bottom: -0.75rem"
+            style="padding: 1rem 1rem 0; margin-bottom: -0.75rem;"
           >培训机构</p>
           <pm-panel
             :list="trainingInstitutions.dataset"

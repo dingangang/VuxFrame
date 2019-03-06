@@ -42,14 +42,15 @@ export default {
 <style scoped lang="scss">
 .pm-block-header {
   padding: 0 1rem;
+
   &__label {
     font-size: 1rem;
     font-weight: 800;
-    line-height: 1.41
+    line-height: 1.41;
   }
+
   &__suffix {
     color: $color-text-secondary;
   }
-
 }
 </style>

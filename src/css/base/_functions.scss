@@ -9,7 +9,9 @@
 
   @if $n == null or $n == 1 {
     @return null;
-  } @else {
+  }
+
+  @else {
     @return nth(map-values($map), $n - 1);
   }
 }
@@ -20,7 +22,9 @@
 
   @if $n == null or $n == length($map) {
     @return null;
-  } @else {
+  }
+
+  @else {
     @return nth(map-values($map), $n + 1);
   }
 }

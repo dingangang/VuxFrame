@@ -48,43 +48,53 @@ export default {
 <style scoped lang="scss">
 .pm-message-list {
   background: $color-bg-card;
+
   > li {
     background: #fff;
   }
 }
+
 .pm-message-item {
   margin: 0 1rem 1rem;
   background: #fff;
+
   &__title {
     font-size: 1rem;
     color: $color-text-main;
-    line-height: 2.4rem
+    line-height: 2.4rem;
   }
+
   &__bd {
     display: flex;
     justify-content: space-between;
     padding: 0.75rem 0;
   }
+
   &__img {
     flex: 0 0 5.625rem;
+
     > img {
       width: 5.625rem;
       border-radius: 2px;
     }
   }
+
   &__ct {
     display: flex;
     flex-flow: column;
     justify-content: space-between;
     font-size: 0.815rem;
   }
+
   &__desc {
     @include line-clamp(3);
-    padding-right: 1rem
+
+    padding-right: 1rem;
   }
+
   &__time {
     color: $color-text-weakening;
-    font-size: 0.815rem
+    font-size: 0.815rem;
   }
 }
 </style>

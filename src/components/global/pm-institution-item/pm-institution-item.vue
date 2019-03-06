@@ -48,21 +48,24 @@ export default {
 <style scoped lang="scss">
 .pm-institution-item {
   margin-bottom: 0.75rem;
-  &__title{
+
+  &__title {
     margin: 0 1rem -10px;
     line-height: 2.4rem;
     background: #fff;
     font-weight: 800;
   }
-  &__distance{
+
+  &__distance {
     color: $color-text-secondary;
     font-weight: normal;
   }
-  &__lm{
+
+  &__lm {
     background: #fff;
     text-align: center;
     line-height: 2.4rem;
-    color: $color-text-weakening
+    color: $color-text-weakening;
   }
 }
 </style>

@@ -11,7 +11,7 @@
 @mixin center-y {
   white-space: nowrap;
 
-  &:after {
+  &::after {
     content: "";
     display: inline-block;
     width: 0;
@@ -30,7 +30,7 @@
 
 // 清除浮动
 @mixin clearfix {
-  &:after {
+  &::after {
     content: " ";
     display: block;
     clear: both;
@@ -43,7 +43,9 @@
     color: $color-text-disabled;
     background-color: $color-bg-disabled;
     border-color: $color-border-disabled;
-  } @else {
+  }
+
+  @else {
     opacity: .45;
   }
 
@@ -63,6 +65,7 @@
   );
 
   $direction-reversal: map-get($placement-map, $direction);
+
   display: inline-block;
   border: $size solid;
 
@@ -90,7 +93,9 @@
 
   @if $color == null {
     $border: $width solid;
-  } @else {
+  }
+
+  @else {
     $border: $width solid $color;
   }
 
@@ -101,7 +106,9 @@
   @if $direction == right or $direction == up {
     border-top: $border;
     border-right: $border;
-  } @else {
+  }
+
+  @else {
     border-bottom: $border;
     border-left: $border;
   }
@@ -125,7 +132,6 @@
   &::-webkit-scrollbar {
     width: $size;
     height: $size;
-
     background-color: $bg;
   }
 
@@ -149,13 +155,19 @@
     @if $placement == top {
       $bg: linear-gradient(to top, transparent 49%, $color 50%) no-repeat top left / 100% 1px;
       $bgs: append($bgs, $bg, comma);
-    } @else if $placement == right {
+    }
+
+    @else if $placement == right {
       $bg: linear-gradient(to right, transparent 49%, $color 50%) no-repeat top right / 1px 100%;
       $bgs: append($bgs, $bg, comma);
-    } @else if $placement == bottom {
+    }
+
+    @else if $placement == bottom {
       $bg: linear-gradient(to bottom, transparent 49%, $color 50%) no-repeat bottom left / 100% 1px;
       $bgs: append($bgs, $bg, comma);
-    } @else if $placement == left {
+    }
+
+    @else if $placement == left {
       $bg: linear-gradient(to left, transparent 49%, $color 50%) no-repeat top left  / 1px 100%;
       $bgs: append($bgs, $bg, comma);
     }

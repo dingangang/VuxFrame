@@ -20,7 +20,7 @@
         <i
           slot="label"
           class="icon icon-home_search"
-          style="margin-right: 0.47rem"></i>
+          style="margin-right: 0.47rem;"></i>
       </x-input>
       <div>
         <i
@@ -30,10 +30,10 @@
       </div>
     </group>
     <flexbox
-      style="padding: 0.75rem 1rem; background: #FFF3ED"
+      style="padding: 0.75rem 1rem; background: #fff3ed;"
     >
       <flexbox-item
-        style="flex: 0 0 1rem"
+        style="flex: 0 0 1rem;"
       >
         <i class="icon icon-home_voice"></i>
       </flexbox-item>
@@ -62,7 +62,7 @@
       <flexbox-item
         v-for="item in appEntrances"
         :key="item.id"
-        style="flex: 0 0 20%"
+        style="flex: 0 0 20%;"
         @click.native="handleAppEnteranceClick(item)"
         class="mb-medium"
       >
@@ -100,7 +100,7 @@
         ></pm-panel>
         <div
           class="text-center text-weakening"
-          style="line-height: 2.4"
+          style="line-height: 2.4;"
         >
           查看更多机构
         </div>
@@ -274,7 +274,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-
-</style>

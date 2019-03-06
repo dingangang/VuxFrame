@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <x-header class="pm-header" style="position: absolute; width: 100%">
+    <x-header class="pm-header" style="position: absolute; width: 100%;">
       <i
         slot="right"
         @click="handleStarClick"
@@ -14,7 +14,7 @@
       class="pm-institution-bg"
       :style="`background-image: url('${institutionHeaderSrc}')`"
     >
-      <div style="position:relative;height:100%">
+      <div style="position:relative; height:100%;">
         <div class="pm-institution-info">
           <div class="pm-institution-info__img">
             <img
@@ -85,7 +85,7 @@
             class="mt-medium"
             label="简介"
           ></pm-block-header>
-          <ul style="padding: 0.75rem 1rem">
+          <ul style="padding: 0.75rem 1rem;">
             <li
               class="mt-tiny"
               v-for="(item, index) in briefIntroduction.introduction"
@@ -162,7 +162,7 @@
           <div
             v-if="lessons.length > 0"
             class="text-center text-weakening"
-            style="line-height:2.4rem"
+            style="line-height:2.4rem;"
             @click="loadMore"
           >查看更多课程</div>
         </div>
@@ -292,36 +292,42 @@ export default {
   z-index: -1;
   background-repeat: no-repeat;
   background-size: cover;
-  &:after{
+
+  &::after {
     content: "";
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     position: absolute;
-    left:0;
-    top:0;
+    left: 0;
+    top: 0;
     background: inherit;
     filter: blur(2px);
     z-index: -1;
   }
 }
+
 .pm-institution-info {
   display: flex;
   padding: 1.5rem 1rem;
   justify-content: space-between;
+
   &__img {
     flex: 0 0 4.125rem;
-    >img{
+
+    > img {
       width: 100%;
       height: 4.125rem;
       border-radius: 4px;
     }
   }
+
   &__bd {
     flex: 1;
     text-align: left;
     padding-left: $spacing-medium;
     min-width: 0;
   }
+
   &__title {
     font-size: 1.125rem;
     line-height: 1.55rem;
@@ -330,6 +336,7 @@ export default {
     overflow: hidden;
     white-space: nowrap;
   }
+
   &__subTitle {
     font-size: 0.815rem;
     line-height: 1.15rem;
@@ -338,6 +345,7 @@ export default {
     overflow: hidden;
     white-space: nowrap;
   }
+
   &__suffix {
     margin-top: $spacing-tiny;
     font-size: 0.75rem;
@@ -346,6 +354,7 @@ export default {
     opacity: 0.4;
   }
 }
+
 .pm-comment-list {
   margin-top: 0.75rem;
   padding: 0 1rem;
@@ -355,24 +364,28 @@ export default {
   &__header {
     display: flex;
     justify-content: space-between;
-    align-items: baseline
+    align-items: baseline;
   }
+
   &__portrait {
     width: 2rem;
     height: 2rem;
-    border-radius: 100%
+    border-radius: 100%;
   }
+
   &__name {
     font-size: 0.94rem;
-    font-weight: 600
+    font-weight: 600;
   }
+
   &__time {
     font-size: 0.75rem;
-    color: $color-text-weakening
+    color: $color-text-weakening;
   }
+
   &__vip {
     display: inline-block;
-    background: #FF9A00;
+    background: #ff9a00;
     border-radius: 1rem;
     height: 1.0625rem;
     line-height: 1.0625rem;
@@ -380,15 +393,18 @@ export default {
     vertical-align: middle;
     font-size: 0.75rem;
     color: #fff;
-    >.icon {
+
+    > .icon {
       vertical-align: sub;
     }
   }
+
   &__desc {
-    padding: 0.5rem 0 1rem
+    padding: 0.5rem 0 1rem;
   }
-  &+& {
-    margin-top: $spacing-medium
+
+  & + & {
+    margin-top: $spacing-medium;
   }
 }
 </style>

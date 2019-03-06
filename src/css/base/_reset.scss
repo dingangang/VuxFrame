@@ -42,23 +42,47 @@ body {
 }
 
 // 外边距重置
-h1, h2, h3, h4, h5, h6, ul, ol, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+p {
   margin: 0;
   font-size: inherit;
 }
 
 // 内边距重置
-ul, ol {
+ul,
+ol {
   padding: 0;
 }
 
 // 字体大小重置
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 400;
 }
 
 // IE9 Shims
-article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
+article,
+aside,
+dialog,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
   display: block;
 }
 

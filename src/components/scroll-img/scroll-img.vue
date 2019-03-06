@@ -85,6 +85,7 @@ export default {
   overflow-x: scroll;
   white-space: nowrap;
   min-height: 5rem;
+
   &__item {
     position: relative;
     display: inline-block;
@@ -94,39 +95,46 @@ export default {
     &:last-child {
       margin-right: 1rem;
     }
+
     &--default {
       width: 10rem;
       height: 5.725rem;
     }
+
     &--tiny {
       width: 6rem;
       height: 6rem;
     }
   }
+
   &__title,
   &__subTitle {
     overflow: hidden;
-    text-overflow: ellipsis
+    text-overflow: ellipsis;
   }
+
   &__title {
-    font-size:1rem;
+    font-size: 1rem;
     color: #fff;
-    z-index: 2
+    z-index: 2;
   }
+
   &__subTitle {
     font-size: 0.7825rem;
     color: #fff;
-    z-index: 2
+    z-index: 2;
   }
+
   &__img {
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     border-radius: 8px;
-    z-index: -1
+    z-index: -1;
   }
+
   &__videoMask {
     text-align: center;
     line-height: 3rem;

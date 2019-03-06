@@ -21,8 +21,8 @@ body {
     top: 0;
     width: 100%;
     padding: 0 1rem;
-
   }
+
   .weui-cells {
     display: flex;
     justify-content: space-between;
@@ -30,34 +30,38 @@ body {
     height: 2rem;
     line-height: 2rem;
     background-color: transparent;
+
     &::before,
     &::after {
-      content: none
+      content: none;
     }
   }
+
   .weui-cell {
     flex: 1;
     margin-right: 0.75rem;
-    padding-right: 2rem;
-    padding: 0 0.5rem;
+    padding: 0 2rem 0 0.5rem;
     border-radius: 0.25rem;
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(255, 255, 255, 0.6);
   }
+
   .weui-input {
     font-size: 0.815rem;
     height: 2.411765em;
+
     &::placeholder {
       color: #fff;
     }
+
     ::-webkit-input-placeholder {
-      color: #fff
+      color: #fff;
     }
   }
 }
 
 .pm-swiper--no-title {
   .vux-swiper-desc {
-    display:none;
+    display: none;
   }
 }
 
@@ -71,13 +75,15 @@ body {
 .pm-header {
   &.vux-header {
     background-color: transparent;
+
     .vux-header-title {
       color: $color-text-main;
       font-size: 1.05rem !important;
-      font-weight: 600
+      font-weight: 600;
     }
+
     .vux-header-back {
-      visibility: hidden
+      visibility: hidden;
     }
   }
 }
@@ -85,16 +91,19 @@ body {
 .pm-tab {
   .vux-tab {
     width: 16rem;
+
     .vux-tab-item {
       flex: 0 0 4rem;
       background: none;
+
       .vux-tab-selected {
-        color: $color-text-highlight
+        color: $color-text-highlight;
       }
     }
   }
+
   .vux-tab-bar-inner {
-    background-color: $color-text-highlight
+    background-color: $color-text-highlight;
   }
 }
 
@@ -102,18 +111,22 @@ body {
   height: 2.5rem;
   line-height: 2.5rem;
   background-color: #fafafa;
+
   .vux-flexbox-item {
     text-align: center;
     font-size: 0.875rem;
     color: $color-text-secondary;
-    >i {
-      margin-right: $spacing-step
+
+    > i {
+      margin-right: $spacing-step;
     }
   }
+
   &.pm-auth-info--reverse {
     position: absolute;
     bottom: -0.2rem;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
+
     .vux-flexbox-item {
       color: #fff;
     }
@@ -124,25 +137,30 @@ body {
   display: flex;
   flex-flow: column;
   padding: 0.75rem 1rem;
+
   &__header,
   &__ft {
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
   }
+
   &__ft {
     margin-top: $spacing-step;
     align-items: baseline;
   }
+
   &__consult {
     flex: 0 0 4.375rem;
-    text-align: right
+    text-align: right;
   }
+
   &__lbox {
     flex: 1;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
   }
+
   &__title {
     width: 100%;
     font-size: 1.315rem;
@@ -152,11 +170,13 @@ body {
     white-space: nowrap;
     overflow: hidden;
   }
+
   &__rtime {
     font-size: 0.875rem;
     line-height: 1.25rem;
-    color: $color-text-secondary
+    color: $color-text-secondary;
   }
+
   &__price {
     font-size: 1.625rem;
     color: $color-text-success;
@@ -164,17 +184,20 @@ body {
     font-weight: 400;
     margin-right: -0.5rem;
   }
+
   &__oprice {
     font-size: 0.75rem;
     line-height: 1.03rem;
     color: $color-text-weakening;
-    vertical-align: baseline
+    vertical-align: baseline;
   }
+
   &__enroll {
     font-size: 0.875rem;
     color: $color-text-weakening;
   }
 }
+
 .pm-bottom-group {
   position: fixed;
   bottom: 0;
@@ -183,17 +206,20 @@ body {
   height: 3.5rem;
   text-align: center;
   background: #fff;
+
   &__btn {
     flex: 1;
     line-height: 3.5rem;
     font-size: 1rem;
-    color: #3EBA45;
+    color: #3eba45;
   }
+
   .has-color {
     color: #fff;
-    background: linear-gradient(90deg, #4EDA59 0%, #3EBA45 100%);
+    background: linear-gradient(90deg, #4eda59 0%, #3eba45 100%);
   }
 }
+
 .pm-consultant {
   position: fixed;
   bottom: 0;
@@ -202,6 +228,7 @@ body {
   height: 3.5rem;
   text-align: center;
   background: #fff;
+
   &__btn {
     flex: 0 0 16.67%;
     display: flex;
@@ -214,12 +241,13 @@ body {
 
     &--large {
       flex: 1;
-      background-image: linear-gradient(90deg, #4EDA59 0%, #3EBA45 100%);
+      background-image: linear-gradient(90deg, #4eda59 0%, #3eba45 100%);
       line-height: 3.5rem;
       color: #fff;
       font-size: 1rem;
     }
-    &+&{
+
+    & + & {
       border-left: 1px solid #e5e5e5;
     }
   }
@@ -234,34 +262,41 @@ body {
 .pm-lesson-wares {
   padding: 1rem 1rem 0;
 }
+
 .pm-lesson-ware {
   margin-bottom: 1.2rem;
-  &:nth-child(even) {
-    .pm-lesson-ware__img {
-      text-align: right
-    }
-  }
+
   &__img {
-    >img {
+    > img {
       width: 10.47rem;
       height: 6rem;
       border-radius: 5px;
     }
   }
+
+  &:nth-child(even) {
+    .pm-lesson-ware__img {
+      text-align: right;
+    }
+  }
+
   &__title {
     margin-top: $spacing-tiny;
     padding-right: 0.3rem;
     font-size: 0.94rem;
     line-height: 1.31rem;
     font-weight: 600;
-    @include ellipsis()
+
+    @include ellipsis();
   }
+
   &__subTitle,
   &__oprice {
     font-size: 0.75rem;
     line-height: 1.03rem;
-    color: $color-text-weakening
+    color: $color-text-weakening;
   }
+
   &__price {
     margin-right: -0.2rem;
     font-size: 1rem;

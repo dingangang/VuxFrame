@@ -31,7 +31,7 @@
           <div
             v-if="activities.all.length > 0"
             class="text-center text-weakening"
-            style="line-height:2.4rem"
+            style="line-height:2.4rem;"
           >加载更多</div>
         </div>
       </div>
@@ -47,7 +47,7 @@
           <div
             v-if="activities.parenting.length > 0"
             class="text-center text-weakening"
-            style="line-height:2.4rem"
+            style="line-height:2.4rem;"
           >加载更多</div>
         </div>
       </div>
@@ -63,7 +63,7 @@
           <div
             v-if="activities.creative.length > 0"
             class="text-center text-weakening"
-            style="line-height:2.4rem"
+            style="line-height:2.4rem;"
           >加载更多</div>
         </div>
       </div>
@@ -79,7 +79,7 @@
           <div
             v-if="activities.category.length > 0"
             class="text-center text-weakening"
-            style="line-height:2.4rem"
+            style="line-height:2.4rem;"
           >加载更多</div>
         </div>
       </div>
@@ -172,7 +172,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-
-</style>

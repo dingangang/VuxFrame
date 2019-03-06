@@ -7,7 +7,7 @@
       <div class="pm-message-details__ab">{{messageDetails.abstract}}</div>
       <div class="pm-message-details__bd">
         {{messageDetails.desc}}
-        <div style="width: 100%">
+        <div style="width: 100%;">
           <img :src="messageDetails.src" width="100%" alt="img" />
         </div>
       </div>
@@ -47,31 +47,36 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.pm-message-details{
+.pm-message-details {
   padding: 0.75rem 1rem;
-  &__title{
+
+  &__title {
     font-size: 1.5rem;
     line-height: 2.1rem;
     font-weight: 600;
   }
-  &__time{
+
+  &__time {
     margin-top: 0.75rem;
     color: $color-text-weakening;
     font-size: 0.815rem;
     line-height: 1.5rem;
   }
-  &__ab{
+
+  &__ab {
     margin-top: 1.5rem;
     font-size: 0.94rem;
     color: $color-text-weakening;
     line-height: 1.5rem;
   }
-  &__bd{
+
+  &__bd {
     margin-top: 1.7rem;
     font-size: 1.125rem;
     line-height: 2.125rem;
-    img{
-      margin: 1rem 0
+
+    img {
+      margin: 1rem 0;
     }
   }
 }

@@ -55,7 +55,7 @@
           <div
             v-if="lessons.all.length > 0"
             class="text-center text-weakening"
-            style="line-height:2.4rem"
+            style="line-height:2.4rem;"
           >加载更多</div>
         </div>
       </div>
@@ -73,7 +73,7 @@
           <div
             v-if="lessons.chinese.length > 0"
             class="text-center text-weakening"
-            style="line-height:2.4rem"
+            style="line-height:2.4rem;"
           >加载更多</div>
         </div>
       </div>
@@ -91,7 +91,7 @@
           <div
             v-if="lessons.math.length > 0"
             class="text-center text-weakening"
-            style="line-height:2.4rem"
+            style="line-height:2.4rem;"
           >加载更多</div>
         </div>
       </div>
@@ -109,7 +109,7 @@
           ></pm-panel>
           <div
             class="text-center text-weakening"
-            style="line-height:2.4rem"
+            style="line-height:2.4rem;"
           >加载更多</div>
         </div>
       </div>
@@ -230,7 +230,9 @@ export default {
 .pm-swiper--inner-page {
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  &.vux-slider > .vux-indicator, .vux-slider .vux-indicator-right {
+
+  &.vux-slider > .vux-indicator,
+  .vux-slider .vux-indicator-right {
     right: 25px;
   }
 }
