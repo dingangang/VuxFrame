@@ -13,6 +13,68 @@ if (process.env.NODE_ENV === 'development') {
   Mock.mock(/test$/, {
     msg: 'hello from mockjs.'
   })
+  // 活动详情
+  Mock.mock(/get-activity-detail-info$/, {
+    isCollected: '@BOOLEAN',
+    activityInfo: {
+      title: '@CTITLE(6,20)',
+      remainingTime: '报名截止还剩：@INTEGER(1,3)天@INTEGER(0,23)时@INTEGER(0,59)分',
+      price: '￥@INTEGER(10,30,1,1)',
+      originPrice: '￥@INTEGER(10,30,1,1)',
+      enrolledNumber: '@INTEGER(40, 129)'
+    },
+    schedule: {
+      infos: [
+        {
+          label: '活动说明',
+          text: '@CPARAGRAPH(1,2)'
+        },
+        {
+          label: '时间',
+          text: '01/04-01/09'
+        },
+        {
+          label: '地点',
+          text: '张家界'
+        },
+        {
+          label: '说明',
+          text: '长期有效，每月组织一次'
+        },
+      ]
+    },
+    activityDetailSrc: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551789348071&di=78e1820fcad0b12a164a3d1363dda706&imgtype=0&src=http%3A%2F%2Fimg7.qiyipic.com%2Fappstore%2F20160831%2Ffc%2F04%2Fappstore_57c6d988d2999d715fb3fc04_1x1.jpg',
+    trainingInstitutions: {
+      dataset: [
+        {
+          id: '@id',
+          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg',
+          title: '@CWORD(3,18)',
+          desc: '@CPARAGRAPH(10,35)',
+          auths: ['已认证', '扬琴培训'],
+          distance: '@FLOAT(0,7,1,1)km',
+          url: '/somewhere'
+        }
+      ]
+    }
+  })
+  // 活动列表
+  Mock.mock(/get-activity-data$/, {
+    'dataset|3-5': [
+      {
+        id: '@ID',
+        title: '@CTITLE(5,32)',
+        activityTime: '@DATE("MM/dd HH:mm:ss")',
+        'status|1': ['on', 'off'],
+        src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551860220558&di=b3f29c6baa78533c3647e2f1e752ed97&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201503%2F02%2F20150302125348_5vwjQ.thumb.224_0.jpeg',
+        desc: '@CPARAGRAPH(30,50)',
+        location: '@CITY',
+        distance: '@FlOAT(3,8,1,1)km',
+        time: '@DATE("MM/dd HH:mm:ss")',
+        url: '/activity-details'
+      }
+    ]
+  })
   // 课程详情
   Mock.mock(/get-lesson-detail-info$/, {
     isCollected: '@BOOLEAN',
@@ -24,7 +86,6 @@ if (process.env.NODE_ENV === 'development') {
       enrolledNumber: '@INTEGER(40, 129)'
     },
     schedule: {
-      title: '课程表',
       infos: [
         {
           label: '课时数量',

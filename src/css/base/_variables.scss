@@ -52,6 +52,7 @@
  $color-text-disabled:#ccc !default; // 禁用文本
  $color-text-highlight:#3EBA45 !default; // 高亮文本
  $color-text-success: #FF391F  !default; // 反转文本
+ $color-text-tip: #ff6722 !default; // 提示文本
  $color-text-inverse: #fff !default; // 反转文本
  $color-text-link:$color-main !default; // 链接色
  $color-text-link-hover: hover($color-text-link) !default; // 链接滑过色

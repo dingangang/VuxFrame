@@ -42,5 +42,15 @@ export default new Router({
       name: 'lesson-details',
       component: () => import(/* webpackChunkName: "lesson" */ './pages/LessonDetails/index'),
     },
+    {
+      path: '/activity-page',
+      name: 'activity-page',
+      component: () => import(/* webpackChunkName: "lesson" */ './pages/ActivityPage/index'),
+    },
+    {
+      path: '/activity-details/:id',
+      name: 'activity-details',
+      component: () => import(/* webpackChunkName: "lesson" */ './pages/ActivityDetails/index'),
+    },
   ],
 });

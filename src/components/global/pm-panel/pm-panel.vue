@@ -179,14 +179,6 @@ export default {
       @include line-clamp();
       white-space: normal;
     }
-    // .weui-media-box__bd {
-    //   display: flex;
-    //   flex-flow: column;
-    //   justify-content: space-between
-    // }
-    // .weui-media-box__desc {
-    //   position: relative;
-    // }
   }
 }
 </style>

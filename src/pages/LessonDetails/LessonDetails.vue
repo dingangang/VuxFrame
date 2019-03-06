@@ -87,7 +87,7 @@
       <div class="tab-panes">
         <div class="tab-pane" v-if="currentTabIndex === 0">
           <div class="p-medium">
-            <p class="text-small text-bold">{{schedule.title}}</p>
+            <p class="text-small text-bold">课程表</p>
             <div
               v-for="(info,index) in schedule.infos"
               :key="index"
@@ -114,6 +114,33 @@
           ></pm-panel>
         </div>
       </div>
+      <div class="pm-consultant">
+        <a
+          class="pm-consultant__btn"
+          @click.prevent="go('/index')"
+        >
+          <i class="icon icon-detail_home"></i>
+          <p>首頁</p>
+        </a>
+        <a
+          class="pm-consultant__btn"
+           @click.prevent="go('/lesson-page')"
+        >
+          <i class="icon icon-detail_more"></i>
+          <p>更多课程</p>
+        </a>
+        <a
+          class="pm-consultant__btn"
+          @click.prevent="handleConsultClick"
+        >
+          <i class="icon icon-detail_consultx"></i>
+          <p>咨询</p>
+        </a>
+        <a
+          class="pm-consultant__btn--large"
+          @click.prevent="handleSginUp"
+        >立刻报名</a>
+      </div>
     </div>
   </div>
 </template>
@@ -126,10 +153,11 @@ export default {
   name: 'lesson-details',
   created() {
     this.getSwiperData()
-    this.getlessonDetail()
+    this.getLessonDetail()
   },
   data() {
     return {
+      lessonId: this.$route.params.id,
       isCollected: false,
       swiperData: [],
       currentSwiperIndex: 0,
@@ -155,6 +183,18 @@ export default {
   },
   methods: {
     /**
+     * 立即报名
+     */
+    handleSginUp() {
+      console.log('立即报名逻辑')
+    },
+    /**
+     * 路由跳转
+     */
+    go(url) {
+      this.$router.push({ path: url })
+    },
+    /**
      * 切换tab按钮事件
      * @param {Number} index 点击的tab按钮的index
      */
@@ -170,7 +210,7 @@ export default {
     /**
      * 获取课程详细信息,此处我全部从一个接口出了，实际请试具体环境
      */
-    getlessonDetail() {
+    getLessonDetail() {
       this.axios.get('/get-lesson-detail-info')
         .then((res) => {
           console.log('课程详情', res)
