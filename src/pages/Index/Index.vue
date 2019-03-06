@@ -249,10 +249,18 @@ export default {
         })
     },
     /**
-     * 处理小日历图标点击
+     * 处理小日历图标点击 window.Android.loginOut();
      */
     handleCalendarClick() {
       console.log('在此处应跳转到签到页面')
+      this.axios.get('api/api1/temppay/alipay')
+        .then((res) => {
+          console.log('支付信息', res.data.errmsg);
+          window.Android.Alipay(res.data.errmsg);
+        })
+        .catch((err) => {
+          console.error(err)
+        })
     },
     /**
      * 图片错误
