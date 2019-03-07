@@ -13,6 +13,54 @@ if (process.env.NODE_ENV === 'development') {
   Mock.mock(/test$/, {
     msg: 'hello from mockjs.'
   })
+  // 咨询页面
+  Mock.mock(/get-consultation-page-data$/, {
+    'dataset|3-5': [
+      {
+        'timeLabel|1': ['今天晚上 10:38', '昨天上午 11:56'],
+        'consultationList|1-3': [
+          {
+            id: '@ID',
+            title: '预约顾问',
+            progress: {
+                'status|+1': ['ongoing', 'success', 'done'],
+                'statusText|+1': ['预约中', '预约成功', '完成']
+            },
+            details: [
+              {
+                label: '预约人',
+                text: '张先生',
+              },
+              {
+                label: '电话',
+                text: '13788888888',
+              },
+              {
+                label: '预约时间',
+                text: '@DATE("yyyy/MM/dd HH:mm")',
+              },
+              {
+                label: '咨询内容',
+                text: '@CWORD(2,4) @CWORD(2,4) @CWORD(2,4)'
+              },
+              {
+                label: '顾问姓名',
+                text: '@CNAME()'
+              },
+              {
+                label: '地点',
+                text: '@CITY(true)XX街道XX号'
+              },
+              {
+                label: '联系电话',
+                text: /^0731-\d{8}$/
+              },
+            ],
+          }
+        ],
+      }
+    ]
+  })
   // 机构详情页
   Mock.mock(/get-institution-details-data$/, {
     isCollected: '@BOOLEAN',
