@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     isLoading: true,
     role: 0,
+    currentTabbarIndex: 0
   },
   mutations: {
     updateLoadingStatus(state, payload) {
@@ -15,6 +16,9 @@ export default new Vuex.Store({
     updateRole(state, payload) {
       state.role = payload
     },
+    updateTabbrIndex(state, payload) {
+      state.currentTabbarIndex = payload
+    }
   },
   actions: {
 

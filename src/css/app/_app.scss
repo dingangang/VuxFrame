@@ -214,6 +214,10 @@ body {
     color: #3eba45;
   }
 
+  .is-disabled {
+    opacity: 0.6;
+  }
+
   .has-color {
     color: #fff;
     background: linear-gradient(90deg, #4eda59 0%, #3eba45 100%);
@@ -303,4 +307,22 @@ body {
     color: $color-text-success;
     line-height: 1.6rem;
   }
+}
+
+.pm-rater {
+  &.vux-rater {
+    margin-left: 1rem;
+  }
+
+  .vux-rater-inner {
+    vertical-align: middle;
+  }
+}
+
+.pm-textarea {
+  width: 100%;
+  resize: none;
+  border: 1px solid #e5e5e5;
+  padding: 0.75rem;
+  font-size: 0.875rem;
 }

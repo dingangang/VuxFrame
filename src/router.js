@@ -1,8 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import VideoPlayer from './pages/VideoPlayer/index'
-
 Vue.use(Router);
 
 export default new Router({
@@ -58,18 +56,31 @@ export default new Router({
     {
       path: '/institution-page',
       name: 'institution-page',
-      component: () => import(/* webpackChunkName: "lesson" */ './pages/InstitutionPage/index'),
+      component: () => import(/* webpackChunkName: "institution" */ './pages/InstitutionPage/index'),
     },
     {
       path: '/institution-details/:id',
       name: 'institution-details',
-      component: () => import(/* webpackChunkName: "lesson" */ './pages/InstitutionDetails/index'),
+      component: () => import(/* webpackChunkName: "institution" */ './pages/InstitutionDetails/index'),
+    },
+    {
+      path: '/institution-comment/:id',
+      name: 'institution-comment',
+      component: () => import(/* webpackChunkName: "institution" */ './pages/InstitutionComment/index'),
+    },
+    {
+      path: '/consultation-page',
+      name: 'consultation-page',
+      meta: {
+        showTabbar: true
+      },
+      component: () => import(/* webpackChunkName: "consultation" */ './pages/ConsultationPage/index'),
     },
     {
       path: '/video-player',
       name: 'video-player',
       props: true,
-      component: VideoPlayer,
+      component: () => import(/* webpackChunkName: "consultation" */ './pages/VideoPlayer/index'),
     },
     {
       // 请保持错误页在最后

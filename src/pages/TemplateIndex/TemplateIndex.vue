@@ -4,7 +4,8 @@
     <tabbar class="pm-tabbar" v-show="showTabbar">
       <tabbar-item
         :selected="currentSelected === 0"
-        @on-item-click="currentSelected = 0"
+        @on-item-click="handleTabbarClick(0)"
+        link="/index"
       >
         <i
           slot="icon"
@@ -16,7 +17,8 @@
       <tabbar-item
         show-dot
         :selected="currentSelected === 1"
-        @on-item-click="currentSelected = 1"
+        @on-item-click="handleTabbarClick(1)"
+        link="/consultation-page"
       >
         <i
           slot="icon"
@@ -27,7 +29,7 @@
       </tabbar-item>
       <tabbar-item
         :selected="currentSelected === 2"
-        @on-item-click="currentSelected = 2"
+        @on-item-click="handleTabbarClick(2)"
         link="/component/demo"
       >
         <i
@@ -40,7 +42,7 @@
       <tabbar-item
         badge="2"
         :selected="currentSelected === 3"
-        @on-item-click="currentSelected = 3"
+        @on-item-click="handleTabbarClick(3)"
       >
         <i
           slot="icon"
@@ -54,18 +56,29 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'template-index',
   created() {},
   data() {
-    return {
-      currentSelected: 0
-    }
+    return {}
   },
   computed: {
     showTabbar() {
       return this.$route.meta && this.$route.meta.showTabbar
+    },
+    ...mapState({
+      currentSelected: state => state.currentTabbarIndex
+    })
+  },
+  methods: {
+    /**
+     * 处理tabbar点击事件
+     */
+    handleTabbarClick(tabbarIndex) {
+      this.$store.commit('updateTabbrIndex', tabbarIndex)
     }
-  }
+  },
 }
 </script>

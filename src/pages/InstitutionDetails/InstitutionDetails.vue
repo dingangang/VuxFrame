@@ -174,7 +174,10 @@
       </div>
     </div>
     <div class="pm-bottom-group">
-      <a class="pm-bottom-group__btn vux-1px-t">评价</a>
+      <a
+        class="pm-bottom-group__btn vux-1px-t"
+        @click.prevent="handleCommentClick"
+      >评价</a>
       <a
         class="pm-bottom-group__btn has-color"
         @click.prevent="handleConsultClick"
@@ -186,7 +189,7 @@
 <script>
 import ScrollImg from '@/components/scroll-img/scroll-img'
 import ActivityList from '@/components/activity-list/acticvity-list'
-import ComprehensiveScore from './components/ComprehensiveScore'
+import ComprehensiveScore from '@/components/comprehensive-score/comprehensive-score'
 
 export default {
   name: 'institution-details',
@@ -198,6 +201,7 @@ export default {
       showToastValue: true,
       isCollected: false,
       institutionHeaderSrc: '',
+      institutionID: this.$route.params.id,
       institutionInfo: {
         title: '',
         subTitle: '',
@@ -225,6 +229,12 @@ export default {
     ActivityList
   },
   methods: {
+    /**
+     * 处理评价按钮点击
+     */
+    handleCommentClick() {
+      this.$router.push({ path: `/institution-comment/${this.institutionID}` })
+    },
     /**
      * 加载更多课程，此处没有使用滚动加载
      */
