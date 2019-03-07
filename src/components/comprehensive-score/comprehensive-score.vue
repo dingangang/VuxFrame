@@ -1,7 +1,6 @@
 <template>
   <div
     class="pm-comprehensive-score"
-    :class="`pm-comprehensive-score--type${type}`"
   >
     <slot>
       <template v-if="type === '1'">
@@ -46,6 +45,7 @@
             v-for="(item,index) in scores.subItems"
             :key="index"
             class="pm-comprehensive-score__subItem"
+            :class="`pm-comprehensive-score__subItem--type${type}`"
           >
             <span>{{item.label}}</span>
             <rater
@@ -133,6 +133,11 @@ export default {
     display: flex;
     font-size: 0.815rem;
     align-items: baseline;
+
+    &--type2 {
+      font-size: 0.875rem;
+      line-height: 2.5rem;
+    }
   }
 
   &__progress {
@@ -155,15 +160,6 @@ export default {
           #ff6722 100%
         );
       border-radius: 12px;
-    }
-  }
-
-  &--type2 {
-    align-items: center;
-
-    .pm-comprehensive-score__subItem {
-      font-size: 0.875rem;
-      line-height: 2.5rem;
     }
   }
 }
