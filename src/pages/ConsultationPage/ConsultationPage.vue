@@ -100,7 +100,7 @@ export default {
   height: 2.615rem;
   border-radius: 3rem;
   background: #fff;
-  box-shadow: 0 0 8px 0 rgba(0,0,0,0.10);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
 
   &__btn {
     flex: 1;
@@ -109,8 +109,8 @@ export default {
     color: #3eba45;
 
     &.has-color {
-      background: linear-gradient(90deg, #4EDA59 0%, #3EBA45 100%);
-      border-radius: 3rem 0px 0px 3rem;
+      background: linear-gradient(90deg, #4eda59 0%, #3eba45 100%);
+      border-radius: 3rem 0 0 3rem;
       color: #fff;
     }
   }
@@ -147,11 +147,11 @@ export default {
     height: 2.5rem;
     line-height: 2.5rem;
     font-size: 0.94rem;
-    font-weight: 600
+    font-weight: 600;
   }
 
   &__bd {
-    padding: 0.75rem 0 1rem
+    padding: 0.75rem 0 1rem;
   }
 
   &__title {
@@ -184,7 +184,7 @@ export default {
       display: inline-block;
       width: 0.375rem;
       height: 0.375rem;
-      border-radius: 100%
+      border-radius: 100%;
     }
   }
 
@@ -192,15 +192,15 @@ export default {
     font-weight: normal;
 
     &--ongoing {
-      color: #ff6722
+      color: #ff6722;
     }
 
     &--success {
-      color: #3eba45
+      color: #3eba45;
     }
 
     &--done {
-      color: $color-text-secondary
+      color: $color-text-secondary;
     }
   }
 

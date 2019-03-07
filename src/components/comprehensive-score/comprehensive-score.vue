@@ -109,15 +109,6 @@ export default {
   justify-content: space-between;
   padding: 0.75rem 1rem;
 
-  &--type2 {
-    align-items: center;
-
-    .pm-comprehensive-score__subItem {
-      font-size: 0.875rem;
-      line-height: 2.5rem;
-    }
-  }
-
   &__total {
     flex: 0 0 3.75rem;
     text-align: center;
@@ -164,6 +155,15 @@ export default {
           #ff6722 100%
         );
       border-radius: 12px;
+    }
+  }
+
+  &--type2 {
+    align-items: center;
+
+    .pm-comprehensive-score__subItem {
+      font-size: 0.875rem;
+      line-height: 2.5rem;
     }
   }
 }

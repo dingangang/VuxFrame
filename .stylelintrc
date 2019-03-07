@@ -5,6 +5,7 @@
     "indentation": 2,
     "number-leading-zero": null,
     "at-rule-no-unknown": null,
+    "no-descending-specificity": null,
     "unit-whitelist": [
       "em",
       "rem",
