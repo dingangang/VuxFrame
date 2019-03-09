@@ -13,6 +13,15 @@ if (process.env.NODE_ENV === 'development') {
   Mock.mock(/test$/, {
     msg: 'hello from mockjs.'
   })
+  // 用户中心
+  Mock.mock(/get-user-basic-info$/, {
+    userBasicInfo:　{
+      id: '@ID',
+      name: '@CNAME',
+      grade: '小学一年级',
+      headerSrc:　'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551888415959&di=1bbd074fefd2e1000fa842898b3b943b&imgtype=0&src=http%3A%2F%2Fimg5.duitang.com%2Fuploads%2Fitem%2F201405%2F10%2F20140510204029_vRTkt.jpeg',
+    }
+  })
   // 咨询页面
   Mock.mock(/get-consultation-page-data$/, {
     'dataset|3-5': [

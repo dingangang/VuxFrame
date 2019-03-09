@@ -77,6 +77,11 @@ export default new Router({
       component: () => import(/* webpackChunkName: "consultation" */ './pages/ConsultationPage/index'),
     },
     {
+      path: '/user-center',
+      name: 'user-center',
+      component: () => import(/* webpackChunkName: "user-center" */ './pages/UserCenter/index'),
+    },
+    {
       path: '/video-player',
       name: 'video-player',
       props: true,
