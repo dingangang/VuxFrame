@@ -121,6 +121,11 @@ export default {
     this.getAppEntrances()
     this.getHotActivities()
     this.getRecomanderOrganization()
+    this.getSchoolAll()
+    this.getNotice()
+    this.getActivity()
+    this.getLatitude()
+    this.getAd()
   },
   mounted() {
     setTimeout(() => {
@@ -132,8 +137,9 @@ export default {
       scrollLock: true,
       searchValue: '',
       currentSwiperIndex: 0,
+      longitude: 0,
+      latitude: 0,
       swiperData: [],
-
       marqueeData: [],
       appEntrances: [],
       hotActivities: {
@@ -151,6 +157,54 @@ export default {
     ScrollImg,
   },
   methods: {
+    /**
+     * 获取机构
+     */
+    getSchoolAll() {
+      this.$fetch('api/school/schoolAll')
+        .then((res) => {
+          console.log('获取机构', res)
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+    },
+    /**
+     * 获取公告
+     */
+    getNotice() {
+      this.$fetch('api/notice/indexNotice')
+        .then((res) => {
+          console.log('获取通知', res)
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+    },
+    /**
+     * 获取活动
+     */
+    getActivity() {
+      this.$fetch('api/activity/list')
+        .then((res) => {
+          console.log('获取活动', res)
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+    },
+    /**
+     * 获取首页广告
+     */
+    getAd() {
+      this.$fetch('api/ad/list')
+        .then((res) => {
+          console.log('获取广告', res)
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+    },
     /**
      * 搜索条回车事件
      */
@@ -248,18 +302,20 @@ export default {
           console.error(err)
         })
     },
+
+
     /**
      * 处理小日历图标点击 window.Android.loginOut();
      */
     handleCalendarClick() {
       console.log('在此处应跳转到签到页面')
-      this.axios.get('api/api1/temppay/alipay')
+      this.$fetch('api/temppay/alipay')
         .then((res) => {
-          console.log('支付信息', res.data.errmsg);
-          window.Android.Alipay(res.data.errmsg);
+          console.log('支付信息', res.errmsg);
+          window.Android.Alipay(res.errmsg);
         })
         .catch((err) => {
-          console.error(err)
+          console.log(err)
         })
     },
     /**
@@ -271,6 +327,27 @@ export default {
     onSwiperChange() {
       console.log('轮播图 change')
     },
+
+    // 百度地图拿坐标
+    getLatitude() {
+      const coords = this;
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          // locationSuccess 获取成功的话
+          function(position) {
+            // position就是我们通过api获取的信息，而我们想获取的经纬度就在coords下，随后将经纬度分别赋值给外部data设定好的变量
+            coords.getLongitude = position.coords.longitude;
+            // 记住如果这里直接写this可能会导致找不到外部的变量而报错，所以提前设置一下this的指向
+            coords.getLatitude = position.coords.latitude;
+          },
+          // locationError  获取失败的话
+          function(error) {
+            const errorType = ['您拒绝共享位置信息', '获取不到位置信息', '获取位置信息超时'];
+            // alert(errorType[error.code - 1]);
+          }
+        );
+      }
+    }
   },
 }
 </script>

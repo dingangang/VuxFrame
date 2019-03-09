@@ -16,6 +16,9 @@ import TemplateIndex from '@/pages/TemplateIndex/index'
 
 export default {
   name: 'App',
+  created() {
+    this.getTokenInfo()
+  },
   components: {
     Loading,
     TemplateIndex
@@ -26,6 +29,22 @@ export default {
       role: state => state.role
     }),
   },
+  methods:{
+    // 接收url后的数据
+      getTokenInfo() {
+        let token = this.getUrlKey("token"); 
+        if(token !=null){
+            localStorage.setItem("token",token);
+        }
+      },
+      
+      /**
+       * 获取地址栏参数
+       */
+      getUrlKey: function (name) {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.href) || [, ""])[1].replace(/\+/g, '%20')) || null
+      }
+  }
 };
 </script>
 
