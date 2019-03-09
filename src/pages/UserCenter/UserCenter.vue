@@ -11,7 +11,10 @@
         </div>
       </div>
       <div>
-        <a class="user-center__archives">学生档案 <i class="icon icon-white_into"></i> </a>
+        <a
+          class="user-center__archives"
+          @click.prevent="linkToUserFiles"
+        >学生档案 <i class="icon icon-white_into"></i> </a>
       </div>
     </div>
     <div class="user-center__entryBlock">
@@ -30,17 +33,51 @@
         </a>
       </div>
     </div>
-    <div class="user-form">
+    <div class="pm-user-form">
+      <group class="pm-group">
+        <cell-box is-link link="/somewhere">
+          私人顾问
+        </cell-box>
+        <cell-box is-link link="/somewhere">
+          我的积分
+        </cell-box>
+        <cell-box is-link link="/somewhere">
+          我的课程
+        </cell-box>
+        <cell-box is-link link="/somewhere">
+          我的收藏
+        </cell-box>
+        <cell-box is-link link="/somewhere">
+          我的错题本
+        </cell-box>
+        <cell-box is-link link="/somewhere">
+          修改密码
+        </cell-box>
+        <cell-box is-link link="/somewhere">
+          关于我们
+        </cell-box>
+      </group>
 
+      <div class="text-center m-medium">
+        <a
+          class="pm-sign-out-btn"
+          @click="handleSignOut"
+        >退出登录</a>
+      </div>
     </div>
   </div>
 </template>
 
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'user-center',
   created() {
+    // 激活我的样式
+    this.selectIcon()
+
     this.getUserBaseInfo()
   },
   data() {
@@ -53,19 +90,76 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapState({
+      /**
+       * 请明确制定role的值
+       * 这里暂定
+       * 0：家长
+       * 1：学生
+       */
+      role: state => state.role,
+      userId: state => state.userId
+    })
+  },
   methods: {
     /**
-     * 获取学生基本信息
+     * 跳转到用户档案
+     */
+    linkToUserFiles() {
+      this.$router.push('/user-files')
+    },
+    /**
+     * 图标选中预处理
+     */
+    selectIcon() {
+      switch (this.role) {
+        case 0 :
+          this.$store.commit('updateTabbrIndex', 3)
+          return
+        case 1 :
+          this.$store.commit('updateTabbrIndex', 4)
+          return
+        default :
+          console.log('not match')
+      }
+    },
+    /**
+     * 获取用户基本信息
      */
     getUserBaseInfo() {
       this.axios.get('/get-user-basic-info')
         .then((res) => {
           console.log('用户基本信息', res)
           this.userBasicInfo = res.data.userBasicInfo
+          console.log('这里模拟下从store拿到用户id ----> ', this.userId, '模拟接口id仅做占位使用')
+          this.userBasicInfo.id = this.userId
         })
         .catch((err) => {
           console.error(err)
         })
+    },
+    /**
+     * 处理退出按钮点击事件
+     */
+    handleSignOut() {
+      // !! 注意在回调中的this指向
+      const $vm = this
+      this.$vux.confirm.show({
+        content: '确定退出吗？',
+        // 组件除show外的属性
+        onCancel () {
+          console.log('操作取消了')
+          console.log('this ->>', $vm)
+        },
+        onConfirm () {
+          console.log('退出成功回调')
+          console.log('this ->>', $vm)
+          $vm.$vux.toast.show({
+            text: '退出成功'
+          })
+        }
+      })
     }
   },
 }
@@ -112,7 +206,7 @@ export default {
     > img {
       width: 3.75rem;
       height: 3.75rem;
-      border-radius: 100%
+      border-radius: 100%;
     }
   }
 
@@ -131,7 +225,7 @@ export default {
     justify-content: space-around;
     align-items: center;
     background: #fff;
-    box-shadow: 0 0 4px 0 rgba(0,0,0,0.10);
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 
     > a {
@@ -146,8 +240,15 @@ export default {
   }
 }
 
-.user-form {
-  background: #fff;
+.pm-sign-out-btn {
+  display: inline-block;
+  height: 3rem;
+  line-height: 2.875rem;
+  width: 100%;
+  background: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  font-size: $font-size-small;
+  color: $color-text-secondary;
 }
-
 </style>

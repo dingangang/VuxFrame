@@ -19,7 +19,10 @@ import {
   Tab,
   TabItem,
   Card,
-  ToastPlugin
+  ToastPlugin,
+  CellBox,
+  Cell,
+  ConfirmPlugin,
 } from 'vux';
 
 Vue.component('xHeader', XHeader);
@@ -40,5 +43,8 @@ Vue.component('badge', Badge);
 Vue.component('tab', Tab);
 Vue.component('tab-item', TabItem);
 Vue.component('card', Card);
+Vue.component('cell-box', CellBox);
+Vue.component('cell', Cell);
 
 Vue.use(ToastPlugin)
+Vue.use(ConfirmPlugin)

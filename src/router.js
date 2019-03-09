@@ -79,7 +79,15 @@ export default new Router({
     {
       path: '/user-center',
       name: 'user-center',
+      meta: {
+        showTabbar: true
+      },
       component: () => import(/* webpackChunkName: "user-center" */ './pages/UserCenter/index'),
+    },
+    {
+      path: '/user-files',
+      name: 'user-files',
+      component: () => import(/* webpackChunkName: "user-center" */ './pages/UserFiles/index'),
     },
     {
       path: '/video-player',

@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     isLoading: true,
-    role: 0,
+    role: 1,
+    userId: '88888888',
     currentTabbarIndex: 0
   },
   mutations: {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     },
     updateTabbrIndex(state, payload) {
       state.currentTabbarIndex = payload
+    },
+    updateUserId(state, payload) {
+      state.userId = payload
     }
   },
   actions: {

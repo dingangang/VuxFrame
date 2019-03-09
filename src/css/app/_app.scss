@@ -86,6 +86,12 @@ body {
       visibility: hidden;
     }
   }
+
+  &--bg {
+    &.vux-header {
+      background: #fff;
+    }
+  }
 }
 
 .pm-tab {
@@ -325,4 +331,61 @@ body {
   border: 1px solid #e5e5e5;
   padding: 0.75rem;
   font-size: 0.875rem;
+}
+
+.pm-user-form {
+  background: #fff;
+
+  .weui-cells.vux-no-group-title {
+    margin-top: 0;
+  }
+}
+
+.pm-group {
+  .weui-cells {
+    font-size: 1rem;
+  }
+
+  .weui-cell {
+    padding: 0 1rem;
+    height: 3.25rem;
+    line-height: 3.125rem;
+
+    &__ft {
+      font-size: 0.875rem;
+    }
+  }
+
+  .pm-big-cellbox {
+    display: block;
+    min-height: 8.78rem;
+    height: auto;
+
+    &__title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      line-height: 1.25rem;
+    }
+
+    &__interests {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+
+      > li {
+        margin: 0 0.565rem 0.5rem 0;
+        height: 2rem;
+        padding: 0 0.5rem;
+        line-height: 1.875rem;
+        background: #f5f5f5;
+        border-radius: 4px;
+        font-size: 0.8125rem;
+        color: $color-text-secondary;
+      }
+    }
+
+    &::after {
+      top: 1.5rem !important;
+    }
+  }
 }
