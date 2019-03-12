@@ -148,6 +148,7 @@ export default {
 
   &__src {
     flex: 0 0 4.625rem;
+
     > img {
       width: 4.625rem;
       height: 4.625rem;
@@ -166,6 +167,7 @@ export default {
 
   &__title {
     @include ellipsis;
+
     font-size: 0.94rem;
   }
 
@@ -189,12 +191,12 @@ export default {
 
   &__price {
     font-size: 1rem;
-    margin-right: -0.3rem
+    margin-right: -0.3rem;
   }
 
   &__originPrice {
     font-size: 0.75rem;
-    color: $color-text-weakening
+    color: $color-text-weakening;
   }
 
   &__btn {
@@ -205,7 +207,7 @@ export default {
     border-radius: 4px;
     padding: 0 0.5rem;
     color: #3eba45;
-    font-size: 0.875rem
+    font-size: 0.875rem;
   }
 
   &__ft {
@@ -220,21 +222,20 @@ export default {
     font-weight: normal;
 
     &--done {
-      color: #3eba45
+      color: #3eba45;
     }
 
     &--wait {
-      color: #ff6722
+      color: #ff6722;
     }
 
     &--refund {
-      color: #ff391f
+      color: #ff391f;
     }
 
     &--cancel {
-      color: $color-text-weakening
+      color: $color-text-weakening;
     }
-
   }
 }
 </style>

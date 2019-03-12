@@ -9,7 +9,7 @@
       <div class="tab-panes" v-show="step===0">
         <div
           class="text-right text-weakening"
-          style="padding-right: 1rem;font-size:0.94rem; min-height:1.3rem;"
+          style="padding-right: 1rem; font-size:0.94rem; min-height:1.3rem;"
           @click="step=1"
         >
           跳过
@@ -45,7 +45,7 @@
       <div class="tab-panes" v-show="step===1">
         <div
           class="text-right text-weakening"
-          style="padding-right: 1rem;font-size:0.94rem; min-height:1.3rem;"
+          style="padding-right: 1rem; font-size:0.94rem; min-height:1.3rem;"
         >
         </div>
         <div class="pm-interests__title">
@@ -271,7 +271,7 @@ export default {
     &--selected {
       color: #3eba45;
       border-color: #3eba45;
-      background: rgba(62,186,69,0.10);
+      background: rgba(62, 186, 69, 0.1);
     }
   }
 }
