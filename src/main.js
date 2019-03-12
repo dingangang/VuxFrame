@@ -13,13 +13,13 @@ import './plugins/axios'
 import './plugins/vux-components'
 import './mock/ui-api'
 
-import {post,fetch,patch,put} from './utils/http'
+import { post, fetch, patch, put } from './utils/http'
 
-//定义全局变量
-Vue.prototype.$post=post;
-Vue.prototype.$fetch=fetch;
-Vue.prototype.$patch=patch;
-Vue.prototype.$put=put;
+// 定义全局变量
+Vue.prototype.$post = post;
+Vue.prototype.$fetch = fetch;
+Vue.prototype.$patch = patch;
+Vue.prototype.$put = put;
 
 Vue.prototype.$formatNum = formatNum
 Vue.use(infiniteScroll)

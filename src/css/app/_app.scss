@@ -389,3 +389,41 @@ body {
     }
   }
 }
+
+.weui-cell.hide-arrow {
+  .weui-cell__ft {
+    &::after {
+      content: none;
+    }
+  }
+}
+
+.vux-cell-box.hide-arrow {
+  .weui-cell__ft {
+    &::after {
+      content: none;
+    }
+  }
+}
+
+.pm-confirm-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  > a {
+    display: inline-block;
+    width: 100%;
+    color: #fff;
+    line-height: 3.5rem;
+    font-size: $font-size-small;
+    background: linear-gradient(90deg, #4eda59 0%, #3eba45 100%);
+  }
+
+  &--disabled {
+    > a {
+      opacity: 0.6;
+    }
+  }
+}

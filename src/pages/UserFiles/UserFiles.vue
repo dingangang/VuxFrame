@@ -18,7 +18,11 @@
           </flexbox-item>
         </flexbox>
       </cell-box>
-      <cell title="昵称" is-link>
+      <cell
+        title="昵称"
+        is-link
+        link="/modi-nickname"
+      >
         <span
           v-if="userBasicInfo.name.length > 0"
           class="text-main"
@@ -31,7 +35,11 @@
     </group>
 
     <group class="pm-group">
-      <cell title="真实姓名" is-link>
+      <cell
+        title="真实姓名"
+        is-link
+        link="/modi-name"
+      >
         <span
           v-if="userBasicInfo.realName.length > 0"
           class="text-main"
@@ -40,7 +48,11 @@
         </span>
         <span v-else class="text-disabled">真实姓名更方便与老师沟通</span>
       </cell>
-      <cell title="性别" is-link>
+      <cell
+        title="性别"
+        is-link
+        link="/modi-sex"
+      >
         <span
           v-if="userBasicInfo.sex.length > 0"
           class="text-main"
@@ -49,7 +61,11 @@
         </span>
         <span v-else class="text-disabled">请选择性别</span>
       </cell>
-      <cell title="生日" is-link>
+      <cell
+        title="生日"
+        is-link
+        link="/modi-birthday"
+      >
         <span
           v-if="userBasicInfo.birthDay.length > 0"
           class="text-main"
@@ -64,6 +80,7 @@
       <cell-box
         is-link
         class="pm-big-cellbox"
+        link="/modi-interests"
       >
         <div>
           <span class="text-main">学习阶段及兴趣标签</span>
@@ -81,7 +98,7 @@
         </ul>
       </cell-box>
     </group>
-  </div>
+</div>
 </template>
 
 
@@ -104,7 +121,7 @@ export default {
         sex: '',
         birthDay: '',
         interests: []
-      }
+      },
     }
   },
   computed: {

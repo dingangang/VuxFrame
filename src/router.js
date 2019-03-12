@@ -90,6 +90,31 @@ export default new Router({
       component: () => import(/* webpackChunkName: "user-center" */ './pages/UserFiles/index'),
     },
     {
+      path: '/modi-birthday',
+      name: 'modi-birthday',
+      component: () => import(/* webpackChunkName: "user-center" */ './pages/UserFiles/subpages/ModiBirthday'),
+    },
+    {
+      path: '/modi-name',
+      name: 'modi-name',
+      component: () => import(/* webpackChunkName: "user-center" */ './pages/UserFiles/subpages/ModiName'),
+    },
+    {
+      path: '/modi-sex',
+      name: 'modi-sex',
+      component: () => import(/* webpackChunkName: "user-center" */ './pages/UserFiles/subpages/ModiSex'),
+    },
+    {
+      path: '/modi-nickname',
+      name: 'modi-nickname',
+      component: () => import(/* webpackChunkName: "user-center" */ './pages/UserFiles/subpages/ModiNickname'),
+    },
+    {
+      path: '/modi-interests',
+      name: 'modi-interests',
+      component: () => import(/* webpackChunkName: "user-center" */ './pages/UserFiles/subpages/ModiInterests'),
+    },
+    {
       path: '/video-player',
       name: 'video-player',
       props: true,

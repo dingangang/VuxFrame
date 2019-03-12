@@ -153,6 +153,7 @@ export default {
           console.log('this ->>', $vm)
         },
         onConfirm () {
+          window.Android.loginOut()
           console.log('退出成功回调')
           console.log('this ->>', $vm)
           $vm.$vux.toast.show({

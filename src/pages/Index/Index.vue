@@ -343,7 +343,7 @@ export default {
           // locationError  获取失败的话
           function(error) {
             const errorType = ['您拒绝共享位置信息', '获取不到位置信息', '获取位置信息超时'];
-            // alert(errorType[error.code - 1]);
+            alert(errorType[error.code - 1]);
           }
         );
       }
