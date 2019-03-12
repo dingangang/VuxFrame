@@ -157,23 +157,6 @@ export default {
   }
 }
 
-.pm-auth {
-  margin: 0 0.5rem 0.3rem 0;
-  overflow: hidden;
-  white-space: nowrap;
-
-  &__item {
-    display: inline-block;
-    background: rgba(233, 90, 39, 0.1);
-    margin-right: 0.37rem;
-    border-radius: 2px;
-    line-height: 1.125rem;
-    padding: 0 0.3rem;
-    font-size: 0.75rem;
-    color: #e8541e;
-  }
-}
-
 .pm-panel.pm-panel--type2 {
   .weui-media-box_appmsg {
     .weui-media-box__hd {

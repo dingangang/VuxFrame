@@ -19,7 +19,7 @@
     </div>
     <div class="user-center__entryBlock">
       <div class="user-center__entry">
-        <a>
+        <a @click="go('/order-page')">
           <img src="@/assets/images/img12.png" alt="img">
           <p>订单</p>
         </a>
@@ -103,6 +103,12 @@ export default {
     })
   },
   methods: {
+    /**
+     * 入口跳转
+     */
+    go(url) {
+      this.$router.push(url)
+    },
     /**
      * 跳转到用户档案
      */

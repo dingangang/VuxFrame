@@ -13,6 +13,90 @@ if (process.env.NODE_ENV === 'development') {
   Mock.mock(/test$/, {
     msg: 'hello from mockjs.'
   })
+  // 退款页面
+  Mock.mock(/get-refund-data1$/, 'post', (options) => {
+    console.log('options', options)
+    const params = JSON.parse(options.body)
+    return Mock.mock({
+      'dataset|1': [
+        [{
+          id: params.orderId,
+          orderTitle: '课程订单：123456789',
+          orderStatus: 'done',
+          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg',
+          title: '@CWORD(3,18)',
+          price: '￥@FlOAT(10,50,1,1)',
+          originPrice: '￥@INTEGER(10,20)',
+          distance: '张家界 @FLOAT(0,7,1,1)km',
+          enroll: '@INTEGER(100,300)已报名',
+          url: '/somewhere'
+        }],
+        [{
+          id: params.orderId,
+          orderTitle: '活动订单：123456789',
+          orderStatus: 'done',
+          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg',
+          title: '@CWORD(3,18)',
+          price: '￥@FlOAT(10,50,1,1)',
+          originPrice: '￥@INTEGER(10,20)',
+          auths: ['已认证', '扬琴培训'],
+          enroll: '@INTEGER(100,300)已报名',
+          url: '/somewhere'
+        }],
+        [{
+          id: params.orderId,
+          orderTitle: '会员订单：123456789',
+          orderStatus: 'done',
+          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg',
+          title: 'VIP会员',
+          price: '￥@FlOAT(10,50,1,1)',
+          originPrice: '￥@INTEGER(10,20)',
+          url: '/somewhere',
+          refundReason: '退款原因：购买错误，要重新下单'
+        }],
+      ]
+    })
+  })
+  // 订单详情
+  Mock.mock(/get-orders-data$/, {
+    dataset: [
+      {
+        id: '@id',
+        orderTitle: '课程订单：123456789',
+        'orderStatus|1': ['done', 'wait', 'cancel', 'refund'],
+        src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg',
+        title: '@CWORD(3,18)',
+        price: '￥@FlOAT(10,50,1,1)',
+        originPrice: '￥@INTEGER(10,20)',
+        distance: '张家界 @FLOAT(0,7,1,1)km',
+        enroll: '@INTEGER(100,300)已报名',
+        url: '/somewhere'
+      },
+      {
+        id: '@id',
+        orderTitle: '活动订单：123456789',
+        'orderStatus|1': ['done', 'wait', 'cancel', 'refund'],
+        src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg',
+        title: '@CWORD(3,18)',
+        price: '￥@FlOAT(10,50,1,1)',
+        originPrice: '￥@INTEGER(10,20)',
+        auths: ['已认证', '扬琴培训'],
+        enroll: '@INTEGER(100,300)已报名',
+        url: '/somewhere'
+      },
+      {
+        id: '@id',
+        orderTitle: '会员订单：123456789',
+        'orderStatus|1': ['done', 'wait', 'cancel', 'refund'],
+        src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551685802612&di=a3b4ba1e7474961ef82e8c16fbed729d&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2F850093905%2FTB2kWivmRNkpuFjy0FaXXbRCVXa_%2521%2521850093905.jpg_150x150.jpg',
+        title: 'VIP会员',
+        price: '￥@FlOAT(10,50,1,1)',
+        originPrice: '￥@INTEGER(10,20)',
+        url: '/somewhere',
+        refundReason: '退款原因：购买错误，要重新下单'
+      },
+    ]
+  })
   // 用户档案
   Mock.mock(/get-user-files-basic-info$/, {
     userBasicInfo:　{

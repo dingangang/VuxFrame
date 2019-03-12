@@ -90,6 +90,16 @@ export default new Router({
       component: () => import(/* webpackChunkName: "user-center" */ './pages/UserFiles/index'),
     },
     {
+      path: '/order-page',
+      name: 'order-page',
+      component: () => import(/* webpackChunkName: "order" */ './pages/OrderPage/index'),
+    },
+    {
+      path: '/order-refund/:orderId',
+      name: 'order-refund',
+      component: () => import(/* webpackChunkName: "order" */ './pages/OrderRefund/index'),
+    },
+    {
       path: '/modi-birthday',
       name: 'modi-birthday',
       component: () => import(/* webpackChunkName: "user-center" */ './pages/UserFiles/subpages/ModiBirthday'),
