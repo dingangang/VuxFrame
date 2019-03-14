@@ -327,7 +327,8 @@ if (process.env.NODE_ENV === 'development') {
         },
       ]
     },
-    activityDetailSrc: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551789348071&di=78e1820fcad0b12a164a3d1363dda706&imgtype=0&src=http%3A%2F%2Fimg7.qiyipic.com%2Fappstore%2F20160831%2Ffc%2F04%2Fappstore_57c6d988d2999d715fb3fc04_1x1.jpg',
+    activityDetailSrc: '<p><img class="fr-fin" data-fr-image-preview="false" alt="Image title" src="https://pumingoss.oss-cn-hangzhou.aliyuncs.com/zmyx/20190314/10174580419f59.jpg" width="300" /></p><p>12312312阿斯顿发送到发送到发送</p ><p><strong><em><strike><u>到阿斯顿发斯蒂芬</u></strike></em></strong></p >',
+    // activityDetailSrc: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551789348071&di=78e1820fcad0b12a164a3d1363dda706&imgtype=0&src=http%3A%2F%2Fimg7.qiyipic.com%2Fappstore%2F20160831%2Ffc%2F04%2Fappstore_57c6d988d2999d715fb3fc04_1x1.jpg',
     trainingInstitutions: {
       dataset: [
         {
@@ -344,7 +345,7 @@ if (process.env.NODE_ENV === 'development') {
   })
   // 活动列表
   Mock.mock(/get-activity-data$/, {
-    'dataset|3-5': [
+    'list|3-5': [
       {
         id: '@ID',
         title: '@CTITLE(5,32)',

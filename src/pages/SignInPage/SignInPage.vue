@@ -13,7 +13,7 @@
           <img
             src="@/assets/images/img01.png"
             alt="?"
-            style="width:1.07rem;height:1.07rem"
+            style="width:1.07rem; height:1.07rem;"
           >
         </a>
       </x-header>
@@ -204,7 +204,7 @@ export default {
     border-radius: 4px;
     padding: 1.125rem 1rem;
     background: #fff;
-    text-align:left;
+    text-align: left;
     font-size: 0.94rem;
     line-height: 1.75rem;
   }

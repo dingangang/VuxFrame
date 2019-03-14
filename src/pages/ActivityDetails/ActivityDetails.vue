@@ -83,7 +83,10 @@
       </div>
       <div class="has-bg-default mb-medium">
         <p class="p-medium mt-small text-small text-bold">活动详情</p>
-        <img style="width: 100%;" :src="activityDetailSrc" alt="img">
+        <div v-html="activityDetailSrc">
+
+        </div>
+        <!-- <img style="width: 100%;" :src="activityDetailSrc" alt="img"> -->
       </div>
       <div class="mt-small has-bg-default">
         <p
