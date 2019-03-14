@@ -34,7 +34,7 @@
           <i class="icon icon-time mr-step"></i>{{item.time}}
         </span>
         <a
-          @click.prevent="go(item.url, item.id)"
+          @click.prevent="go('/activity-details', item.id)"
         >
           查看详情 <i class="icon icon-into"></i>
         </a>

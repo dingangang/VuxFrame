@@ -32,9 +32,11 @@ export default {
   methods: {
     // 接收url后的数据
     getTokenInfo() {
-      const token = this.getUrlKey('token');
+      const token = this.getUrlKey('token'); //token
+      const model = this.getUrlKey('model'); //家长还是学生0:家长；1:学生
       if (token != null) {
         localStorage.setItem('token', token);
+        localStorage.setItem('model', model);
       }
     },
 

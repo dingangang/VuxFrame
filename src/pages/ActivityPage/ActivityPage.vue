@@ -129,20 +129,21 @@ export default {
      * 获取活动数据
      */
     getActivityData() {
-      this.axios.get('/get-activity-data')
+      this.$fetch('api/activity/list', { })
         .then((res) => {
           // 此处拉取全部的数据？看后台情况看是否需要异步加载。
-          console.log('活动数据', res)
+          // console.log('活动数据', res)
+          console.log('活动类型', this.currentTabIndex)
           // 演示用模拟数据，
           switch (this.currentTabIndex) {
             case 0:
-              this.activities.all = res.data.dataset
+              this.activities.all = res.data.list
               break
             case 1:
-              this.activities.parenting = res.data.dataset
+              this.activities.parenting = res.data.list
               break
             case 2:
-              this.activities.creative = res.data.dataset
+              this.activities.creative = res.data.list
               break
             case 3:
               this.activities.category = res.data.dataset
