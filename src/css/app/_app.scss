@@ -87,11 +87,18 @@ body {
     }
   }
 
+  &--reverse.vux-header {
+    .vux-header-title {
+      color: #fff;
+    }
+  }
+
   &--bg {
     &.vux-header {
       background: #fff;
     }
   }
+
 }
 
 .pm-tab {
@@ -449,5 +456,12 @@ body {
     padding: 0 0.3rem;
     font-size: 0.75rem;
     color: #e8541e;
+  }
+}
+
+// 日历改写
+.pm-calendar {
+  > .wh_content_all {
+    border-radius: 8px;
   }
 }
