@@ -125,9 +125,14 @@ export default new Router({
       component: () => import(/* webpackChunkName: "user-center" */ './pages/UserFiles/subpages/ModiInterests'),
     },
     {
-      path: '/sign-in-page',
-      name: 'sign-in-page',
-      component: () => import(/* webpackChunkName: "sign-in" */ './pages/SignInPage/index'),
+      path: '/sign-in-page-student',
+      name: 'sign-in-page-student',
+      component: () => import(/* webpackChunkName: "sign-in" */ './pages/SignInPageStudent/index'),
+    },
+    {
+      path: '/sign-in-page-parents',
+      name: 'sign-in-page-parents',
+      component: () => import(/* webpackChunkName: "sign-in" */ './pages/SignInPageParents/index'),
     },
     {
       path: '/video-player',

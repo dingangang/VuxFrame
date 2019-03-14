@@ -1,4 +1,4 @@
-import Component from './SignInPage'
+import Component from './SignInPageParents'
 
 export default {
   // 混入

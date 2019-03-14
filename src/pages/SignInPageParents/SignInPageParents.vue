@@ -19,10 +19,10 @@
       </x-header>
       <div class="pm-signin__content">
         <a
-          class="pm-signin__btn"
+          class="pm-signin__btn pm-signin__btn--parents"
           @click.prevent="handleClickSingin"
         >
-          签到
+          请假
         </a>
       </div>
     </div>
@@ -86,18 +86,14 @@ import dayjs from 'dayjs';
 import { mapState } from 'vuex';
 
 export default {
-  name: 'sign-in-page',
+  name: 'sign-in-page-parents',
   created() {
     this.getSignInArr()
   },
   data() {
     return {
       showTip: false,
-      arr: [
-        { date: '2019/3/8', className: 'normal' },
-        { date: '2019/3/10', className: 'leave' },
-        { date: '2019/3/11', className: 'abnormal' }
-      ]
+      arr: []
     }
   },
   components: {
@@ -168,15 +164,15 @@ export default {
     font-size: 1rem;
     color: #fff;
     font-weight: 600;
-    background: url('../../assets/images/button_bg.png') no-repeat;
-    background-size: cover;
 
-    > img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    &--student {
+      background: url('../../assets/images/button_bg.png') no-repeat;
+      background-size: cover;
+    }
+
+    &--parents {
+      background: url('../../assets/images/button_bg.png') no-repeat;
+      background-size: cover;
     }
   }
 }

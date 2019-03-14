@@ -112,10 +112,14 @@
 <script>
 import { Swiper } from 'vux'
 import ScrollImg from '@/components/scroll-img/scroll-img'
+import { mapState } from 'vuex';
 
 export default {
   name: 'index',
   created() {
+    // 重置tabbard为首页
+    this.$store.commit('updateTabbarIndex', 0)
+    // 获取数据的方法
     this.getSwiperData()
     this.getMarqueeData()
     this.getAppEntrances()
@@ -151,6 +155,12 @@ export default {
         dataset: [],
       },
     }
+  },
+  computed: {
+    ...mapState({
+      userId: state => state.userId,
+      role: state => state.role
+    }),
   },
   components: {
     Swiper,
@@ -309,6 +319,18 @@ export default {
      */
     handleCalendarClick() {
       console.log('在此处应跳转到签到页面')
+      switch (this.role) {
+        case 0:
+          this.$router.push('sign-in-page-parents')
+          return
+        case 1:
+          this.$router.push('sign-in-page-student')
+          return
+        default:
+          console.log('请查看角色配置是否有问题？')
+      }
+
+
       this.$fetch('api/temppay/alipay')
         .then((res) => {
           console.log('支付信息', res.errmsg);

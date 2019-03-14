@@ -69,7 +69,7 @@
         show-dot
         :selected="currentSelected === 1"
         @on-item-click="handleTabbarClick(1)"
-        link="/consultation-page"
+        link="/sign-in-page-student"
       >
         <i
           slot="icon"

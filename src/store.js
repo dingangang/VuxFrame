@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     isLoading: true,
-    role: 1,
+    role: 0,
     userId: '88888888',
     currentTabbarIndex: 0
   },
