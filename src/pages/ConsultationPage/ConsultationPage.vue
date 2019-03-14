@@ -64,7 +64,7 @@
 export default {
   name: 'consulation-page',
   created() {
-    this.$store.commit('updateTabbrIndex', 1)
+    this.$store.commit('updateTabbarIndex', 1)
     this.getConsultationData()
   },
   data() {

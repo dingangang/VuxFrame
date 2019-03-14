@@ -8,6 +8,7 @@
         每日签到
         <a
           slot="right"
+          @click.prevent="showTip=true"
         >
           <img
             src="@/assets/images/img01.png"
@@ -27,12 +28,42 @@
     </div>
     <div class="pm-calendar-container">
       <Calendar
+        ref="Calendar"
         v-on:choseDay="clickDay"
         v-on:changeMonth="changeDate"
         v-on:isToday="clickToday"
         :markDateMore="arr"
+        :sundayStart="true"
         class="pm-calendar"
+        :textTop="[ '日','一', '二', '三', '四', '五', '六'] "
       ></Calendar>
+    </div>
+    <div v-transfer-dom>
+      <x-dialog v-model="showTip">
+        <div class="pm-signin-content">
+          <div class="pm-signin-content__title">
+            签到说明
+            <x-icon
+              class="pull-right"
+              type="ios-close-empty"
+              size="30"
+              @click="showTip=false"
+              fill="#fff"
+            ></x-icon>
+            <!-- <i
+              class="icon icon-close pull-right mt-step"
+              @click="showTip=false"
+            ></i> -->
+          </div>
+          <div class="pm-signin-content__text">
+            <p>1. 每日打卡：周一至周五，下</p>
+            <p>1. 每日打卡：周一至午6:30-9:30</p>
+            <p>1. 每日打卡：周6:30-9:30</p>
+            <p>1. 每日打卡：周一至周五，下午-9:30</p>
+            <p>1. 每日打卡：周一至周五，下午6:30-9:30</p>
+          </div>
+        </div>
+      </x-dialog>
     </div>
 
      <!-- <Calendar
@@ -52,17 +83,31 @@
 <script>
 import Calendar from 'vue-calendar-component';
 import dayjs from 'dayjs';
+import { mapState } from 'vuex';
 
 export default {
   name: 'sign-in-page',
-  created() {},
+  created() {
+    this.getSignInArr()
+  },
   data() {
     return {
-      arr: [{ date: '2019/3/8', className: 'mark1' }, { date: '2019/3/10', className: 'mark2' }]
+      showTip: false,
+      arr: [
+        { date: '2019/3/8', className: 'normal' },
+        { date: '2019/3/10', className: 'leave' },
+        { date: '2019/3/11', className: 'abnormal' }
+      ]
     }
   },
   components: {
     Calendar
+  },
+  computed: {
+    ...mapState({
+      userId: state => state.userId,
+      role: state => state.role
+    }),
   },
   methods: {
     clickDay(data) {
@@ -78,7 +123,26 @@ export default {
      * 给今天签到
      */
     handleClickSingin() {
-      console.log(dayjs())
+      console.log(dayjs().format('YYYY/M/D'))
+      const today = dayjs().format('YYYY/M/D')
+      const todayStatus = {
+        date: today,
+        className: 'normal'
+      }
+      this.arr.push(todayStatus)
+    },
+    /**
+     * 获取签到信息
+     */
+    getSignInArr() {
+      this.axios.get('/get-sign-in-data')
+        .then((res) => {
+          console.log('签到情况', res)
+          this.arr = res.data.dataset
+        })
+        .catch((err) => {
+          console.error(err)
+        })
     }
   },
 }
@@ -119,6 +183,31 @@ export default {
 
 .pm-calendar-container {
   margin: -2rem 1rem 1rem;
+}
+
+.pm-signin-content {
+  background: url('../../assets/images/bg03.png') no-repeat;
+  background-size: cover;
+  padding: 0.75rem;
+  border-radius: 4px;
+
+  &__title {
+    line-height: 1.5rem;
+    font-size: 1.125rem;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  &__text {
+    min-height: 20.5rem;
+    margin-top: 0.75rem;
+    border-radius: 4px;
+    padding: 1.125rem 1rem;
+    background: #fff;
+    text-align:left;
+    font-size: 0.94rem;
+    line-height: 1.75rem;
+  }
 }
 
 </style>

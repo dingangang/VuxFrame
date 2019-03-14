@@ -121,10 +121,10 @@ export default {
     selectIcon() {
       switch (this.role) {
         case 0 :
-          this.$store.commit('updateTabbrIndex', 3)
+          this.$store.commit('updateTabbarIndex', 3)
           return
         case 1 :
-          this.$store.commit('updateTabbrIndex', 4)
+          this.$store.commit('updateTabbarIndex', 4)
           return
         default :
           console.log('not match')

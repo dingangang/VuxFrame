@@ -13,6 +13,15 @@ if (process.env.NODE_ENV === 'development') {
   Mock.mock(/test$/, {
     msg: 'hello from mockjs.'
   })
+  // 签到页面数据获取
+  Mock.mock(/get-sign-in-data$/, {
+    'dataset|5-10': [
+      {
+        date: '2019/3/@INTEGER(1,13)',
+        'className|1': ['normal', 'abnormal', 'leave']
+      },
+    ]
+  })
   // 退款页面
   Mock.mock(/get-refund-data1$/, 'post', (options) => {
     console.log('options', options)

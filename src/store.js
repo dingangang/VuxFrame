@@ -17,7 +17,7 @@ export default new Vuex.Store({
     updateRole(state, payload) {
       state.role = payload
     },
-    updateTabbrIndex(state, payload) {
+    updateTabbarIndex(state, payload) {
       state.currentTabbarIndex = payload
     },
     updateUserId(state, payload) {

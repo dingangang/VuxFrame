@@ -149,7 +149,7 @@ export default {
      * 处理tabbar点击事件
      */
     handleTabbarClick(tabbarIndex) {
-      this.$store.commit('updateTabbrIndex', tabbarIndex)
+      this.$store.commit('updateTabbarIndex', tabbarIndex)
     }
   },
 }
