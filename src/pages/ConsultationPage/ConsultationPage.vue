@@ -1,47 +1,23 @@
 <template>
   <div>
-    <x-header
-      :left-options="{showBack: false}"
-      class="pm-header"
-    >咨询</x-header>
+    <x-header :left-options="{showBack: false}" class="pm-header" >咨询</x-header>
     <div class="pm-consulation-list">
-      <div
-        class="pm-consulation-item"
-        v-for="(consultationBlock, index) in consultationData"
-        :key="index"
-      >
+      <div class="pm-consulation-item" v-for="(consultationBlock, index) in consultationData" :key="index">
         <div class="pm-consulation-list__time">
           <span>{{consultationBlock.timeLabel}}</span>
         </div>
-        <card
-          class="pm-consulation"
-          v-for="consultation in consultationBlock.consultationList"
-          :key="consultation.id"
-        >
+        <card class="pm-consulation" v-for="consultation in consultationBlock.consultationList" :key="consultation.id">
           <div slot="header" class="pm-consulation__hd">
-            <div
-              class="pm-consulation__title"
-              :class="`pm-consulation__title--${consultation.progress.status}`"
-            >
+            <div class="pm-consulation__title" :class="`pm-consulation__title--${consultation.progress.status}`" >
               {{consultation.title}}
             </div>
-            <div
-              class="pm-consulation__status"
-              :class="`pm-consulation__status--${consultation.progress.status}`"
-            >
+            <div class="pm-consulation__status" :class="`pm-consulation__status--${consultation.progress.status}`">
               {{consultation.progress.statusText}}
             </div>
           </div>
           <div slot="content" class="pm-consulation__bd vux-1px-t">
-            <div
-              v-for="(item,i) in consultation.details"
-              :key="i"
-              class="pm-consulation__line"
-            >
-              <span
-                class="text-weakening"
-                style="flex: 0 0 4rem;"
-              >{{item.label}}</span>
+            <div v-for="(item,i) in consultation.details" :key="i" class="pm-consulation__line" >
+              <span class="text-weakening" style="flex: 0 0 4rem;">{{item.label}}</span>
               <span class="text-right">{{item.text}}</span>
             </div>
           </div>
@@ -49,12 +25,8 @@
       </div>
     </div>
     <div class="x-consultation-fixed">
-      <a
-        class="x-consultation-fixed__btn has-color"
-      >预约顾问</a>
-      <a
-        class="x-consultation-fixed__btn"
-      >在线咨询</a>
+      <a class="x-consultation-fixed__btn has-color" >预约顾问</a>
+      <a class="x-consultation-fixed__btn" @click="online">在线咨询</a>
     </div>
   </div>
 </template>
@@ -85,6 +57,9 @@ export default {
         .catch((err) => {
           console.error(err)
         })
+    },
+     online(){
+      this.$router.push({name:'layimmobile'})
     }
   },
 }

@@ -13,7 +13,7 @@
 import { Loading } from 'vux';
 import { mapState } from 'vuex';
 import TemplateIndex from '@/pages/TemplateIndex/index'
-
+import store from '@/store'
 export default {
   name: 'App',
   created() {
@@ -36,7 +36,7 @@ export default {
       const model = this.getUrlKey('model'); // 家长还是学生0:家长；1:学生
       if (token != null) {
         localStorage.setItem('token', token);
-        localStorage.setItem('model', model);
+        store.commit('updateRole',model==null?0:model)
       }
     },
 

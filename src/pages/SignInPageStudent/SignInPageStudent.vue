@@ -57,11 +57,11 @@
             ></i> -->
           </div>
           <div class="pm-signin-content__text">
-            <p>1. 每日打卡：周一至周五，下</p>
-            <p>1. 每日打卡：周一至午6:30-9:30</p>
-            <p>1. 每日打卡：周6:30-9:30</p>
-            <p>1. 每日打卡：周一至周五，下午-9:30</p>
-            <p>1. 每日打卡：周一至周五，下午6:30-9:30</p>
+            <p>1. 每日打卡：周一至周五下午6:30-9:30</p>
+            <p><br></p>
+            <p>2. 新用户首月打卡率超过50%，赠送1个月免费会员</p>
+            <p><br></p>
+            <p>3. 每日打卡获取积分，可用于购买课程、活动和会员</p>
           </div>
         </div>
       </x-dialog>
@@ -119,23 +119,31 @@ export default {
     /**
      * 给今天签到
      */
-    handleClickSingin() {
-      console.log('请在这里处理学生签到的逻辑', dayjs().format('YYYY/M/D'))
+    handleClickSingin() {     
       const today = dayjs().format('YYYY/M/D')
       const todayStatus = {
         date: today,
         className: 'normal'
       }
-      this.arr.push(todayStatus)
+      this.arr.push(todayStatus);
+      this.$fetch('api/signdetail/sign')
+        .then((res) => {
+          console.log('签到结果', res)
+          
+        })
+        .catch((err) => {
+          console.error(err)
+        })     
     },
     /**
      * 获取签到信息
      */
     getSignInArr() {
-      this.axios.get('/get-sign-in-data')
+      // this.axios.get('/get-sign-in-data')
+      this.$fetch('api/signdetail/list')
         .then((res) => {
           console.log('签到情况', res)
-          this.arr = res.data.dataset
+          this.arr = res.data
         })
         .catch((err) => {
           console.error(err)

@@ -23,11 +23,11 @@
           <img src="@/assets/images/img12.png" alt="img">
           <p>订单</p>
         </a>
-        <a>
+        <a @click="go('/leave-form')">
           <img src="@/assets/images/img13.png" alt="img">
           <p>请假</p>
         </a>
-        <a>
+        <a  @click="go('/membership-page')">
           <img src="@/assets/images/img14.png" alt="img">
           <p>会员</p>
         </a>
@@ -35,16 +35,19 @@
     </div>
     <div class="pm-user-form">
       <group class="pm-group">
-        <cell-box is-link link="/somewhere">
+        <cell-box is-link link="/user-consultant">
           私人顾问
         </cell-box>
-        <cell-box is-link link="/somewhere">
+        <cell-box is-link link="user-points">
           我的积分
         </cell-box>
-        <cell-box is-link link="/somewhere">
+        <cell-box is-link link="/user-lessons">
           我的课程
         </cell-box>
-        <cell-box is-link link="/somewhere">
+        <cell-box is-link link="/user-activity">
+          我的活动
+        </cell-box>
+        <cell-box is-link link="/user-collection">
           我的收藏
         </cell-box>
         <cell-box is-link link="/somewhere">

@@ -32,6 +32,7 @@ import {
   Checker,
   CheckerItem,
   XDialog,
+  Radio,
 } from 'vux';
 
 Vue.component('xHeader', XHeader);
@@ -62,6 +63,7 @@ Vue.component('popup-picker', PopupPicker)
 Vue.component('checker', Checker)
 Vue.component('checker-item', CheckerItem)
 Vue.component('x-dialog', XDialog)
+Vue.component('radio', Radio)
 
 Vue.use(ToastPlugin)
 Vue.use(ConfirmPlugin)

@@ -57,7 +57,7 @@
             pm-interests__btn
             x-half-size"
           selected-item-class="pm-interests__btn--selected"
-          class="text-center"
+          style="padding: 0 2rem"
         >
           <checker-item
             class="mb-medium"
@@ -86,7 +86,7 @@
             pm-interests__btn
             x-half-size"
           selected-item-class="pm-interests__btn--selected"
-          class="text-center"
+          style="padding: 0 2rem"
           type="checkbox"
         >
           <checker-item

@@ -85,6 +85,31 @@ export default new Router({
       component: () => import(/* webpackChunkName: "user-center" */ './pages/UserCenter/index'),
     },
     {
+      path: '/user-consultant',
+      name: 'user-consultant',
+      component: () => import(/* webpackChunkName: "user-center" */ './pages/UserCenter/subpages/UserConsultant'),
+    },
+    {
+      path: '/user-points',
+      name: 'user-points',
+      component: () => import(/* webpackChunkName: "user-center" */ './pages/UserCenter/subpages/UserPoints'),
+    },
+    {
+      path: '/user-lessons',
+      name: 'user-lessons',
+      component: () => import(/* webpackChunkName: "user-center" */ './pages/UserCenter/subpages/UserLessons'),
+    },
+    {
+      path: '/user-activity',
+      name: 'user-activity',
+      component: () => import(/* webpackChunkName: "user-center" */ './pages/UserCenter/subpages/UserActivity'),
+    },
+    {
+      path: '/user-collection',
+      name: 'user-collection',
+      component: () => import(/* webpackChunkName: "user-center" */ './pages/UserCenter/subpages/UserCollection'),
+    },
+    {
       path: '/user-files',
       name: 'user-files',
       component: () => import(/* webpackChunkName: "user-center" */ './pages/UserFiles/index'),
@@ -125,6 +150,7 @@ export default new Router({
       component: () => import(/* webpackChunkName: "user-center" */ './pages/UserFiles/subpages/ModiInterests'),
     },
     {
+
       path: '/sign-in-page-student',
       name: 'sign-in-page-student',
       component: () => import(/* webpackChunkName: "sign-in" */ './pages/SignInPageStudent/index'),
@@ -135,10 +161,26 @@ export default new Router({
       component: () => import(/* webpackChunkName: "sign-in" */ './pages/SignInPageParents/index'),
     },
     {
+      path: '/leave-form',
+      name: 'leave-form',
+      component: () => import(/* webpackChunkName: "sign-in" */ './pages/LeaveForm/index'),
+    },
+    {
+      path: '/membership-page',
+      name: 'membership-page',
+      component: () => import(/* webpackChunkName: "membership" */ './pages/MembershipPage/index'),
+    },
+    {
       path: '/video-player',
       name: 'video-player',
       props: true,
       component: () => import(/* webpackChunkName: "consultation" */ './pages/VideoPlayer/index'),
+    },
+    {
+      path: '/layimmobile',
+      name: 'layimmobile',
+      props: true,
+      component: () => import(/* webpackChunkName: "consultation" */ './pages/layimmobile/index'),
     },
     {
       // 请保持错误页在最后

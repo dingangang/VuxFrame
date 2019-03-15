@@ -33,9 +33,8 @@ Vue.config.productionTip = false
 /* 模拟加载缓慢时的loading标签，实际开发时去掉setTimeout函数即可 */
 router.beforeEach((to, from, next) => {
   store.commit('updateLoadingStatus', { isLoading: true })
-  setTimeout(() => {
-    next()
-  }, 2000)
+ 
+  next()
 })
 
 router.afterEach(() => {

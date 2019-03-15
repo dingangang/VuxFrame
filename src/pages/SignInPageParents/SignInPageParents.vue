@@ -119,13 +119,7 @@ export default {
      * 给今天签到
      */
     handleClickSingin() {
-      console.log(dayjs().format('YYYY/M/D'))
-      const today = dayjs().format('YYYY/M/D')
-      const todayStatus = {
-        date: today,
-        className: 'normal'
-      }
-      this.arr.push(todayStatus)
+      this.$router.push({ path: '/leave-form' })
     },
     /**
      * 获取签到信息

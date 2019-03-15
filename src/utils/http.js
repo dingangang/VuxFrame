@@ -13,7 +13,7 @@ axios.interceptors.request.use(
     config.data = JSON.stringify(config.data);
     config.headers = {
       'Content-Type':'application/x-www-form-urlencoded',
-      'access_token':localStorage.getItem("token"),
+      'accessToken':localStorage.getItem("token"),
     }
     // if(token){
     //   config.params = {'token':token}

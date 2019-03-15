@@ -1,16 +1,16 @@
 <template>
   <div class="page">
-<!--广告begin#################################################################################################-->
+<!--广告begin#################################################################################################--> 
 
-    <swiper class="pm-swiper--no-title" :auto="true"  :loop="true"  height="11.3rem" :interval="5000"
-    :list="swiperData" v-model="currentSwiperIndex" :min-moving-distance="120" @on-index-change="onSwiperChange" >
-
-
-    </swiper>
+    <swiper class="pm-swiper--no-title" :auto="true"  :loop="true"  height="11.3rem" :interval="5000"  
+    :list="swiperData" v-model="currentSwiperIndex" :min-moving-distance="120" @on-index-change="onSwiperChange" > 
+    
+     
+    </swiper> 
 
 <!--广告end#################################################################################################-->
 
-<!--搜索begin#################################################################################################-->
+<!--搜索begin#################################################################################################--> 
 
     <group class="pm-search pm-search--top">
       <x-input v-model="searchValue" placeholder="搜索课程、机构"  @on-enter="onSearchEnter" >
@@ -23,7 +23,7 @@
 
 <!--搜索end#################################################################################################-->
 
-<!--通知begin#################################################################################################-->
+<!--通知begin#################################################################################################--> 
 
     <flexbox style="padding: 0.75rem 1rem; background: #fff3ed;" >
       <flexbox-item  style="flex: 0 0 1rem;" > <i class="icon icon-home_voice"></i> </flexbox-item>
@@ -39,9 +39,9 @@
       </flexbox-item>
     </flexbox>
 
-<!--通知end#################################################################################################-->
+<!--通知end#################################################################################################--> 
 
-<!--课程类型begin#################################################################################################-->
+<!--课程类型begin#################################################################################################--> 
 
     <flexbox justify="space-around" wrap="wrap"  :gutter="0"  class="mt-large" >
       <flexbox-item  v-for="item in appEntrances" :key="item.id"  style="flex: 0 0 20%;"  @click.native="handleAppEnteranceClick(item)"  class="mb-medium" >
@@ -52,18 +52,18 @@
       </flexbox-item>
     </flexbox>
 
-<!--课程类型end#################################################################################################-->
+<!--课程类型end#################################################################################################--> 
 
-<!--活动begin#################################################################################################-->
+<!--活动begin#################################################################################################--> 
 
     <div>
       <pm-block-header label="热门活动" link="activity-page" ></pm-block-header>
       <scroll-img :imgList="hotActivities" ></scroll-img>
     </div>
 
-<!--活动begin#################################################################################################-->
+<!--活动begin#################################################################################################--> 
 
-<!--机构begin#################################################################################################-->
+<!--机构begin#################################################################################################--> 
 
     <div class="mt-large">
       <pm-block-header label="推荐机构" link="somewhere" ></pm-block-header>
@@ -73,21 +73,19 @@
       </div>
     </div>
 
-<!--机构end#################################################################################################-->
+<!--机构end#################################################################################################--> 
 
-
+    
   </div>
 </template>
 
 <script>
 import { Swiper } from 'vux'
 import ScrollImg from '@/components/scroll-img/scroll-img'
-import { mapState } from 'vuex';
-// 请不要直接引入store, store中的值以computed的形式获取
-
+import store from '@/store.js'
 export default {
   name: 'index',
-  created() {
+  created() {    
     this.getAppEntrances();
     this.getNotice();
     this.getActivity();
@@ -103,18 +101,18 @@ export default {
     return {
       scrollLock: true,
       searchValue: '',
-      currentSwiperIndex: 0,
-      // model:store.state.role,
+      currentSwiperIndex: 0, 
+      model:store.state.role,
       swiperData: [],
       marqueeData: [],
       appEntrances: [],
-      hotActivities: [],
-      recomanderOrganization: [],
-      schoolParam: {
-        latitude: 22,
-        longitude: 221,
-        page: 1,
-        size: 10
+      hotActivities:[],
+      recomanderOrganization:[],
+      schoolParam:{
+        latitude:22,
+        longitude:221,
+        page:1,
+        size:10
       }
     }
   },
@@ -122,58 +120,55 @@ export default {
     Swiper,
     ScrollImg,
   },
-  computed: {
-    ...mapState({
-      userId: state => state.userId,
-      model: state => state.role
-    }),
-  },
   methods: {
     /**
      * 获取机构
      */
     getSchoolAll() {
-      this.$fetch('api/school/schoolAll', this.schoolParam).then((res) => {
-        this.recomanderOrganization = res.data
-      }).catch((err) => {
-        console.error(err)
-      })
+      this.$fetch('api/school/schoolAll',this.schoolParam).then((res) => { 
+            res.data.forEach(e => {
+              e.url="institution-details";
+            });
+            this.recomanderOrganization = res.data;
+        }).catch((err) => {
+          console.error(err)
+        })
     },
     /**
      * 获取公告
      */
     getNotice() {
-      this.$fetch('api/notice/indexNotice').then((res) => {
-        this.marqueeData = res.data;
-      }).catch((err) => {
-        console.error(err)
-      })
+      this.$fetch('api/notice/indexNotice').then((res) => { 
+           this.marqueeData =res.data;
+        }).catch((err) => {
+          console.error(err)
+        })
     },
     /**
      * 获取活动
      */
     getActivity() {
       this.$fetch('api/activity/indexActivity').then((res) => {
-        this.hotActivities = res.data;
-      }).catch((err) => {
-        console.error(err)
-      })
+          this.hotActivities=res.data;
+        }).catch((err) => {
+          console.error(err)
+        })
     },
     /**
      * 获取首页广告
      */
     getAd() {
-      this.$fetch('api/ad/list').then((res) => {
-        this.swiperData = res.data;
-      }).catch((err) => {
-        console.error(err)
-      })
+      this.$fetch('api/ad/list').then((res) => { 
+           this.swiperData = res.data;
+        }).catch((err) => {
+          console.error(err)
+        })
     },
     /**
      * 搜索条回车事件
      */
     onSearchEnter() {
-      console.log('搜索的内容是', this.searchValue)
+      console.log('搜索的内容是', this.searchValue) 
       this.$router.push({ name: 'search', params: { value: this.searchValue } })
     },
     /**
@@ -185,41 +180,41 @@ export default {
         console.log('触发滚动加载事件')
       }
     },
-
-
+ 
+ 
     /**
      * 处理marquree点击事件
      * @param {Object} item 点击事件的对象
      */
     handleMarqueeClick (item) {
       this.$router.push({ name: 'message-details', params: { id: item.id } })
-
+      
       console.log('点击marquree对象>', item)
     },
     /**
      * 获取app入口信息
      */
     getAppEntrances () {
-        this.$fetch('api/sysmacro/SUBJECT_TYPE').then((res) => {
-          if(res.data!=null) {
+        this.$fetch('api/sysmacro/SUBJECT_TYPE').then((res) => { 
+          if(res.data!=null){
             res.data.push({name:'更多课程',remark:'home_more'})
           }
-        this.appEntrances =  res.data;
+        this.appEntrances =  res.data;  
         }).catch((err) => {
           console.error(err)
         })
-
-
+      
+    
     },
     /**
      * 点击app图标
      * 课程跳转
      */
     handleAppEnteranceClick (item) {
-      this.$router.push({ name: 'somewhere-router', params: { value: this.value}});
+      this.$router.push({ name: 'somewhere-router', params: { value: this.value}}); 
     },
-
-
+ 
+ 
 
 
     /**
@@ -227,18 +222,6 @@ export default {
      */
     handleCalendarClick() {
       console.log('在此处应跳转到签到页面')
-
-      switch (this.role) {
-        case 0:
-          this.$router.push('sign-in-page-parents')
-          return
-        case 1:
-          this.$router.push('sign-in-page-student')
-          return
-        default:
-          console.log('请查看角色配置是否有问题？')
-      }
-
       this.$fetch('api/temppay/alipay')
         .then((res) => {
           console.log('支付信息', res.errmsg);

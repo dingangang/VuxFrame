@@ -5,49 +5,34 @@
   >
      <div class="weui-panel__bd">
       <slot>
+        
+      <!--首页机构显示#################################################################################################--> 
         <template v-if="type === '1'">
-          <a
-            v-for="item in list"
-            :key="item.id"
-            @click.prevent="onItemClick(item)" class="weui-media-box weui-media-box_appmsg"
-          >
-            <div class="weui-media-box__hd" v-if="item.src">
+          <a v-for="item in list"  :key="item.id"  @click.prevent="onItemClick(item)" class="weui-media-box weui-media-box_appmsg">
+            <div class="weui-media-box__hd" v-if="item.listPicUrl">
               <img
                 class="weui-media-box__thumb"
-                :src="item.src"
+                :src="item.listPicUrl"
                 @error="onImgError(item, $event)"
                 alt="img">
             </div>
             <div class="weui-media-box__bd">
               <div>
-                <h4 class="weui-media-box__title" v-html="item.title"></h4>
+                <h4 class="weui-media-box__title" v-html="item.name"></h4>
                 <div class="pm-auth">
-                  <div
-                    class="pm-auth__item"
-                    v-for="(auth,index) in item.auths"
-                    :key="index"
-                  >{{auth}}</div>
+                  <div  class="pm-auth__item"  >{{item.isIdentification==1?'已认证':'未认证'}}</div>
+                  <div  class="pm-auth__item"  >{{item.typeName}}</div>
                 </div>
               </div>
               <p class="weui-media-box__desc">
-                {{textTruncation(item.desc)}}
-                <span
-                  class="pm-panel__distance text-secondary"
-                  v-if="item.distance"
-                >{{item.distance}}</span>
-                <span
-                  class="pm-panel__distance text-main text-small text-bold"
-                  v-if="item.price"
-                >
-                  {{item.price}}
-                  <span
-                    class="text-default text-secondary text-normal"
-                    style="margin-left: -5px;"
-                  >{{item.originPrice}}</span></span>
+                {{textTruncation(item.simpleDesc)}}
+                <span class="pm-panel__distance text-secondary" v-if="item.distance">{{item.distance}}</span> 
               </p>
             </div>
           </a>
         </template>
+
+
         <template v-if="type === '2'">
           <a
             v-for="item in list"
@@ -77,6 +62,28 @@
                   {{item.desc}}
                 </p>
               </div>
+            </div>
+          </a>
+        </template>
+
+      <!--搜索课程显示#################################################################################################--> 
+        <template v-if="type === '3'">
+          <a  v-for="item in list" :key="item.id" @click.prevent="onItemClick(item)" class="weui-media-box weui-media-box_appmsg">
+            <div class="weui-media-box__hd" v-if="item.pictureUrl">
+              <img class="weui-media-box__thumb" :src="item.pictureUrl" @error="onImgError(item, $event)" alt="img">
+            </div>
+            <div class="weui-media-box__bd">
+              <div>
+                <h4 class="weui-media-box__title" v-html="item.name"></h4>
+                <div class="pm-auth">
+                   <div class="pm-auth__item" v-for="(auth,index) in item.auths" :key="index">{{auth}}</div>
+                </div>
+              </div>
+              <p class="weui-media-box__desc">
+                  {{item.studentNum==null?'暂无报名':item.studentNum+'人已报名'}}
+                <span class="pm-panel__distance text-main text-small text-bold"  v-if="item.actualPrice" > ￥{{item.actualPrice}} 
+                <span class="text-default text-secondary text-normal" style="margin-left: -5px;" >￥{{item.marketPrice}}</span> </span>
+              </p>
             </div>
           </a>
         </template>

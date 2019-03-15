@@ -101,7 +101,8 @@
         </div>
         <div class="tab-pane" v-if="currentTabIndex === 1">
           <p class="p-medium text-small text-bold">课程详情</p>
-          <img style="width: 100%;" :src="lessonDetailSrc" alt="img">
+          <div v-html="lessonDetailSrc"></div>
+          <!-- <img style="width: 100%;" :src="lessonDetailSrc" alt="img"> -->
         </div>
         <div class="tab-pane" v-if="currentTabIndex === 2">
           <p

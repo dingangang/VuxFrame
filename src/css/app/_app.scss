@@ -517,3 +517,50 @@ body {
     border-radius: 8px;
   }
 }
+
+.pm-radio {
+  &.weui-cells_radio .weui-check + .weui-icon-checked {
+    border: 1px solid #eee;
+    border-radius: 100%;
+    height: 1.5rem;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+  }
+
+  &.weui-cells_radio .weui-check:checked + .weui-icon-checked {
+    border: none;
+  }
+
+  &.weui-cells_radio .weui-check:checked + .weui-icon-checked::before {
+    border: 1px solid #09bb07;
+    border-radius: 100%;
+    height: 1.5rem;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    color: #fff;
+    background: #09bb07;
+  }
+}
+
+.x-v-divider {
+  margin: 0 $spacing-step;
+  border-left: 1px solid #e5e5e5;
+  display: inline-block;
+  height: 0.875rem;
+  width: 1px;
+  vertical-align: middle;
+
+  &--type1 {
+    border: none;
+    height: 0.94rem;
+  }
+}
+
+.x-left-label {
+  border-left: 0.25rem solid #3eba45;
+  font-size: 1rem;
+  line-height: 1rem;
+  padding-left: 0.5rem;
+}

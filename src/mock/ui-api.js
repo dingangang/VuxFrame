@@ -13,6 +13,65 @@ if (process.env.NODE_ENV === 'development') {
   Mock.mock(/test$/, {
     msg: 'hello from mockjs.'
   })
+  // 用户积分
+  Mock.mock(/get-user-points-data$/, {
+    pointsData: {
+      totalPoints: '@INTEGER(300,500)',
+      currentPoints: '@INTEGER(100,150)',
+      worthy: '￥@INTEGER(50,100)',
+      'pointsList|7': [
+        {
+          id: '@ID',
+          'label|1': ['签到', '答疑', '练习', '咨询', '购买会员', '购买课程', '购买活动'],
+          time: '@DATE(yyyy/MM/dd HH:mm:ss)',
+          'status|+1': [
+            'plus',
+            'plus',
+            'plus',
+            'plus',
+            'minus',
+            'minus',
+            'minus',
+          ],
+          'value|+1': [
+            '+@INTEGER(20,30)',
+            '+@INTEGER(20,30)',
+            '+@INTEGER(20,30)',
+            '+@INTEGER(20,30)',
+            '-@INTEGER(20,30)',
+            '-@INTEGER(20,30)',
+            '-@INTEGER(20,30)',
+          ],
+          'worthy|+1': [
+            '',
+            '',
+            '',
+            '',
+            '抵值￥@INTEGER(10,20)',
+            '抵值￥@INTEGER(10,20)',
+            '抵值￥@INTEGER(10,20)',
+          ]
+        }
+      ]
+    }
+  })
+  // 顾问信息
+  Mock.mock(/get-user-consultant-data$/, {
+    consultantData: {
+      name: '@CNAME',
+      phone: /138(\d{8})/,
+      education: '经济学硕士',
+      type: '高级顾问',
+      headerSrc:　'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551888415959&di=1bbd074fefd2e1000fa842898b3b943b&imgtype=0&src=http%3A%2F%2Fimg5.duitang.com%2Fuploads%2Fitem%2F201405%2F10%2F20140510204029_vRTkt.jpeg',
+      workExperience: [
+        '1、就职日期与离任日期，包括年份和月份。如果工作经历有间断，只列出年份亦可。',
+        '2、就职公司的公司全称，如可能，还应提供所在部门名称及母公司名称。',
+        '3、职务或职位，对于不同的企业，相同的职务可能会有不同的工作内容',
+        '4、具体的工作内容和职责。'
+      ],
+      selfIntroduce: '@CPARAGRAPH(3,5)'
+    }
+  })
   // 签到页面数据获取
   Mock.mock(/get-sign-in-data$/, {
     'dataset|5-10': [
@@ -395,7 +454,7 @@ if (process.env.NODE_ENV === 'development') {
       ],
       suffix: '此课程支持试听课，详情请电话咨询。'
     },
-    lessonDetailSrc: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551789348071&di=78e1820fcad0b12a164a3d1363dda706&imgtype=0&src=http%3A%2F%2Fimg7.qiyipic.com%2Fappstore%2F20160831%2Ffc%2F04%2Fappstore_57c6d988d2999d715fb3fc04_1x1.jpg',
+    lessonDetailSrc: '<p><img class="fr-fin" data-fr-image-preview="false" alt="Image title" src="https://pumingoss.oss-cn-hangzhou.aliyuncs.com/zmyx/20190314/10174580419f59.jpg" width="300"></p ><p>12312312阿斯顿发送到发送到发送</p ><p><strong><em><strike><u>到阿斯顿发斯蒂芬</u></strike></em></strong></p>',
     trainingInstitutions: {
       dataset: [
         {
@@ -431,6 +490,7 @@ if (process.env.NODE_ENV === 'development') {
     abstract: '摘要：@CPARAGRAPH(4,7)',
     desc: '@CPARAGRAPH(30,60)',
     src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551763314540&di=6c451e3a7e5cb98cd293b49a7524be0b&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201701%2F08%2F20170108155535_j8k4r.thumb.224_0.jpeg',
+    messageDetailsSrc: '<p><img class="fr-fin" data-fr-image-preview="false" alt="Image title" src="https://pumingoss.oss-cn-hangzhou.aliyuncs.com/zmyx/20190314/10174580419f59.jpg" width="300"></p ><p>12312312阿斯顿发送到发送到发送</p ><p><strong><em><strike><u>到阿斯顿发斯蒂芬</u></strike></em></strong></p>'
   })
   // 获取消息列表
   Mock.mock(/get-messagesdata$/, {

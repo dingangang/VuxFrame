@@ -1,17 +1,12 @@
 <template>
   <div class="pm-institution-item">
-    <div class="pm-institution-item__title vux-1px-b">
-    {{institution.title}}
+    <div class="pm-institution-item__title vux-1px-b" @click.prevent="onItemClickLink(institution)">
+    {{institution.name}}
     <div class="pull-right pm-institution-item__distance">{{institution.distance}}</div>
     </div>
-    <pm-panel
-      :list="institution.courses"
-      @on-img-error="onImgError"
-    ></pm-panel>
-    <div
-      class="pm-institution-item__lm"
-      @click="handleLoarMore(institution)"
-    >加载更多</div>
+    <pm-panel :list="institution.courseList"  @on-img-error="onImgError"  type="3"></pm-panel>
+    <div  class="pm-institution-item__lm" @click="handleLoarMore(institution)" >{{loadText}}</div>
+    
   </div>
 </template>
 
@@ -22,12 +17,35 @@ export default {
     institution: {
       type: Object,
       required: true
+    },
+     loadType: {
+      type: Number,
+      default: 0
     }
   },
   data() {
-    return {}
+    return {
+      loadText:'加载更多'
+    }
+  },
+  watch:{
+    loadType(n,o){ 
+      if(n==1){
+        this.loadText='加载中...'; 
+      }else if(n==2){
+        this.loadText='没有更多了'; 
+      }else{
+        this.loadText='加载更多'; 
+      }
+    }
   },
   methods: {
+    go(url) {
+      this.$router.push(url)
+    },
+    onItemClickLink (item) {  
+      this.go({ path: `${item.url}/${item.id}` })
+    },
     /**
      * 图片错误
      */

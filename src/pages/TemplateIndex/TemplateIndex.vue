@@ -1,7 +1,7 @@
 <template>
   <div class="pm-index-page">
     <slot></slot>
-    <tabbar class="pm-tabbar" v-show="showTabbar && role === 0">
+    <tabbar class="pm-tabbar" v-show="showTabbar && role == 0">
       <tabbar-item
         :selected="currentSelected === 0"
         @on-item-click="handleTabbarClick(0)"
@@ -43,6 +43,7 @@
         badge="2"
         :selected="currentSelected === 3"
         @on-item-click="handleTabbarClick(3)"
+        link="/user-center"
       >
         <i
           slot="icon"
@@ -52,7 +53,7 @@
         <span slot="label">我的</span>
       </tabbar-item>
     </tabbar>
-    <tabbar class="pm-tabbar" v-show="showTabbar && role === 1">
+    <tabbar class="pm-tabbar" v-show="showTabbar && role == 1">
       <tabbar-item
         :selected="currentSelected === 0"
         @on-item-click="handleTabbarClick(0)"

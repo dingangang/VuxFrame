@@ -2,7 +2,8 @@
   <div>
     <x-header class="pm-header">消息详情</x-header>
     <div class="pm-message-details">
-      <div class="pm-message-details__title">{{messageDetails.title}}</div>
+      <div v-html="messageDetailsSrc"></div>
+      <!-- <div class="pm-message-details__title">{{messageDetails.title}}</div>
       <div class="pm-message-details__time">{{messageDetails.time}}</div>
       <div class="pm-message-details__ab">{{messageDetails.abstract}}</div>
       <div class="pm-message-details__bd">
@@ -10,7 +11,7 @@
         <div style="width: 100%;">
           <img :src="messageDetails.src" width="100%" alt="img" />
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -24,7 +25,8 @@ export default {
   data() {
     return {
       messageID: this.$route.params.id,
-      messageDetails: {}
+      messageDetails: {},
+      messageDetailsSrc: ''
     }
   },
   methods: {
@@ -36,7 +38,8 @@ export default {
       this.axios.get('/get-message-details')
         .then((res) => {
           console.log('消息详情，具体细节还需讨论', res)
-          this.messageDetails = res.data
+          // this.messageDetails = res.data
+          this.messageDetailsSrc = res.data.messageDetailsSrc
         })
         .catch((err) => {
           console.error(err)

@@ -46,7 +46,7 @@
             {{activityInfo.title}}
           </div>
           <div class="pm-main-info__rtime">
-            {{activityInfo.remainingTime}}
+            截止时间还剩：{{activityInfo.remainingTime}}
           </div>
         </div>
         <div
@@ -60,13 +60,13 @@
       <div class="pm-main-info__ft">
         <div>
           <span class="pm-main-info__price">
-            {{activityInfo.price}}
+            ￥{{activityInfo.price}}
           </span>
           <span class="pm-main-info__oprice">
-            {{activityInfo.originPrice}}
+            原价：￥{{activityInfo.originPrice}}
           </span>
         </div>
-        <div class="pm-main-info__enroll">已报名{{activityInfo.enrolledNumber}}</div>
+        <div class="pm-main-info__enroll">已报名{{activityInfo.enrolledNumber}}人</div>
       </div>
     </div>
     <div style="background-color:#f8f9fa; padding-top:0.75rem;">
@@ -135,7 +135,7 @@ import { Swiper } from 'vux'
 export default {
   name: 'activity-details',
   created() {
-    this.getSwiperData()
+    // this.getSwiperData()
     this.getActivityDetail()
   },
   data() {
@@ -183,14 +183,16 @@ export default {
      * 获取课程详细信息,此处我全部从一个接口出了，实际请试具体环境
      */
     getActivityDetail() {
-      this.axios.get('/get-activity-detail-info')
+      // this.axios.get('/get-activity-detail-info')
+      this.$fetch(`api/activity/${this.$route.params.id}`)
         .then((res) => {
           console.log('活动详情', res)
           this.isCollected = res.data.isCollected
           this.activityInfo = res.data.activityInfo
           this.schedule = res.data.schedule
           this.activityDetailSrc = res.data.activityDetailSrc
-          this.trainingInstitutions.dataset = res.data.trainingInstitutions.dataset
+          this.trainingInstitutions.dataset = res.data.trainingInstitutions
+          this.swiperData = res.data.swiperData
         })
         .catch((err) => {
           console.error(err)
@@ -202,14 +204,18 @@ export default {
     handleStarClick() {
       this.isCollected = !this.isCollected
       console.log(`现在收藏选项的状态是${this.isCollected}`)
-      this.$vux.toast.show({
-        text: '收藏成功',
-        type: 'sucess'
+      if(this.isCollected == "true"){
+        this.$vux.toast.show({
+          text: '收藏成功',
+          type: 'sucess'
+        })
+      }else{
+        this.$vux.toast.show({
+        text: '取消成功',
+        type: 'cancel'
       })
-      // this.$vux.toast.show({
-      //   text: '取消成功',
-      //   type: 'cancel'
-      // })
+      }
+      
     },
     /**
      * 获取轮播图数据
