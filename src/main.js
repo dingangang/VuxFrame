@@ -13,14 +13,6 @@ import './plugins/axios'
 import './plugins/vux-components'
 import './mock/ui-api'
 
-import { post, fetch, patch, put } from './utils/http'
-
-// 定义全局变量
-Vue.prototype.$post = post;
-Vue.prototype.$fetch = fetch;
-Vue.prototype.$patch = patch;
-Vue.prototype.$put = put;
-
 Vue.prototype.$formatNum = formatNum
 Vue.use(infiniteScroll)
 
@@ -33,8 +25,9 @@ Vue.config.productionTip = false
 /* 模拟加载缓慢时的loading标签，实际开发时去掉setTimeout函数即可 */
 router.beforeEach((to, from, next) => {
   store.commit('updateLoadingStatus', { isLoading: true })
- 
-  next()
+  setTimeout(() => {
+    next()
+  }, 300)
 })
 
 router.afterEach(() => {

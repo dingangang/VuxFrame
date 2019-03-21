@@ -19,7 +19,7 @@ npm run build
 
 整个项目中仅做了基本的配置，有其他的要求请自行拓展。
 
-### Spritesmith 
+### Spritesmith
 启用了方便的雪碧图，因为是手机端的项目，所以单位适配为rem。
 
 icons请放在static/phoneIcons文件夹中。
